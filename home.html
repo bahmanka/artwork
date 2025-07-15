@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>B.K.A</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="home">
+  <header>
+    <h1>B.K.A</h1>
+    <p>Designer and painter</p>
+  </header>
+
+  <main>
+    <!-- منوی اصلی -->
+    <nav class="menu">
+      <button class="active" onclick="toggleCollections()">Collections</button>
+      <button onclick="goTo('biography.html')">Biography</button>
+      <button onclick="goTo('contact.html')">Contact Me</button>
+    </nav>
+
+    <!-- لیست سال‌ها (Collections) -->
+    <aside id="collections" style="display: none;">
+      <ul class="side-list">
+        <li>2012</li>
+        <li>2013</li>
+        <li>2014</li>
+        <li>2015</li>
+        <li>2016</li>
+        <li>2019</li>
+        <li>2020</li>
+        <li>2021</li>
+        <li>2024</li>
+      </ul>
+    </aside>
+  </main>
+
+  <footer>
+    <p>© 2025 B.K.A</p>
+  </footer>
+
+  <script>
+    function toggleCollections() {
+      const section = document.getElementById("collections");
+      section.style.display = section.style.display === "none" ? "block" : "none";
+    }
+
+    function goTo(page) {
+      window.location.href = page;
+    }
+  </script>
+</body>
+</html>
