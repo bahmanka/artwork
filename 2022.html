@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>B.K.A | 2022 Paintings</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #fff;
+      direction: rtl; /* برای کل صفحه راست به چپ */
+      color: #222;
+      text-align: center;
+    }
+
+    header {
+      padding: 40px 20px 10px;
+    }
+
+    h1 {
+      font-size: 48px;
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 16px;
+      margin: 5px 0 10px;
+      font-weight: normal;
+      color: #555;
+    }
+
+    .separator {
+      width: 60%;
+      height: 2px;
+      background-color: #000;
+      margin: 0 auto 20px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 40px;
+      user-select: none;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-size: 18px;
+      padding: 5px 10px;
+      transition: color 0.3s;
+    }
+
+    nav a.active {
+      color: #000;
+      font-weight: bold;
+    }
+
+    .divider {
+      width: 1px;
+      height: 20px;
+      background-color: #999;
+    }
+
+    main.content-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: right; /* متن در این بخش راست‌چین */
+      direction: ltr; /* محتوای داخل wrapper چپ به راست */
+      display: flex; /* برای نمایش خط عمودی و محتوا در کنار هم */
+    }
+
+    .left-line {
+      width: 3px;
+      background-color: #000;
+      border-radius: 2px;
+      /* ارتفاع خط را به محتوای کناری متناسب کردم */
+      flex-shrink: 0; /* از جمع شدن خط جلوگیری می کند */
+      /* margin-left: 0; این خط دیگر لازم نیست */
+      /* float: left; این هم لازم نیست وقتی از flex استفاده می کنیم */
+      height: auto; /* ارتفاع را به محتوای کناری می دهد */
+      margin-right: 20px; /* فاصله از سمت چپ محتوا */
+    }
+
+    .paintings-section {
+      padding: 0 0 20px 0; /* padding بالا و پایین و از چپ */
+      flex-grow: 1; /* اجازه می دهد فضای موجود را اشغال کند */
+      direction: rtl; /* محتوای این بخش راست به چپ */
+      text-align: right; /* متن در این بخش راست‌چین */
+
+      display: grid; /* استفاده از گرید برای چیدمان تصاویر */
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 3 ستون در عرض کافی، هر ستون حداقل 250px */
+      gap: 20px; /* فاصله بین آیتم‌های گرید */
+      justify-items: center; /* آیتم‌ها را در مرکز سلول‌های گرید قرار می‌دهد */
+    }
+
+    .paintings-section h3 {
+        grid-column: 1 / -1; /* عنوان را در کل عرض گرید قرار می دهد */
+        text-align: right; /* عنوان راست‌چین باشد */
+        margin-bottom: 20px;
+    }
+
+    .painting-item {
+      width: 100%; /* آیتم گرید کل عرض سلول را بگیرد */
+      cursor: pointer; /* نشانگر ماوس برای کلیک کردن */
+    }
+
+    .painting-item img {
+      max-width: 100%;
+      height: auto;
+      display: block; /* برای حذف فضای اضافی زیر تصویر */
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 6px;
+      transition: transform 0.2s ease-in-out; /* انیمیشن کوچک برای hover */
+    }
+
+    .painting-item img:hover {
+        transform: scale(1.02); /* کمی بزرگنمایی در hover */
+    }
+
+    /* --- Modal (Lightbox) Styles --- */
+    .modal {
+        display: none; /* مخفی کردن مدال به صورت پیش‌فرض */
+        position: fixed; /* مدال روی همه چیز قرار بگیرد */
+        z-index: 1000; /* اطمینان از قرارگیری در بالاترین لایه */
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto; /* اگر تصویر بزرگتر از صفحه بود، اسکرول ایجاد شود */
+        background-color: rgba(0, 0, 0, 0.9); /* پس‌زمینه نیمه‌شفاف تاریک */
+        align-items: center; /* برای قرارگیری تصویر در مرکز عمودی */
+        justify-content: center; /* برای قرارگیری تصویر در مرکز افقی */
+        flex-direction: column; /* برای قرارگیری دکمه Close بالای تصویر */
+    }
+
+    .modal-content {
+        max-width: 90%; /* حداکثر عرض تصویر در مدال */
+        max-height: 90%; /* حداکثر ارتفاع تصویر در مدال */
+        display: block;
+        margin: auto; /* برای مرکزیت تصویر */
+        object-fit: contain; /* مطمئن می‌شود تصویر کامل نمایش داده شود */
+    }
+
+    .close-button {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #f1f1f1;
+        font-size: 40px;
+        font-weight: bold;
+        transition: 0.3s;
+        cursor: pointer;
+    }
+
+    .close-button:hover,
+    .close-button:focus {
+        color: #bbb;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    /* Media queries for responsiveness */
+    @media (max-width: 768px) {
+        .paintings-section {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 2 ستون در تبلت */
+            gap: 15px;
+        }
+        h1 {
+            font-size: 38px;
+        }
+        h2 {
+            font-size: 14px;
+        }
+        nav a {
+            font-size: 16px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .paintings-section {
+            grid-template-columns: 1fr; /* 1 ستون در موبایل */
+            gap: 10px;
+        }
+        h1 {
+            font-size: 30px;
+        }
+        h2 {
+            font-size: 12px;
+        }
+        nav a {
+            font-size: 14px;
+        }
+        .close-button {
+            font-size: 30px;
+            top: 10px;
+            right: 20px;
+        }
+        body {
+            padding: 10px;
+        }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>B.K.A</h1>
+    <h2>Designer and Painter</h2>
+    <div class="separator"></div>
+
+    <nav>
+      <a href="biography.html" class="menu-item" id="bio">Biography</a>
+      <div class="divider"></div>
+      <a href="collections.html" class="menu-item" id="coll">Collections</a>
+      <div class="divider"></div>
+      <a href="contact.html" class="menu-item" id="contact">Contact Me</a>
+    </nav>
+  </header>
+
+  <main class="content-wrapper">
+    <div class="left-line"></div>
+
+    <section class="paintings-section">
+      <h3>نقاشی‌های سال 2022</h3>
+      <div class="painting-item">
+        <img src="assets/2022-1.jpg" alt="نقاشی 2022 - 1" data-fullsrc="assets/2022-1.jpg" />
+      </div>
+      <div class="painting-item">
+        <img src="assets/2022-2.jpg" alt="نقاشی 2022 - 2" data-fullsrc="assets/2022-2.jpg" />
+      </div>
+      <div class="painting-item">
+        <img src="assets/2022-3.jpg" alt="نقاشی 2022 - 3" data-fullsrc="assets/2022-3.jpg" />
+      </div>
+      <div class="painting-item">
+        <img src="assets/2022-4.jpg" alt="نقاشی 2022 - 4" data-fullsrc="assets/2022-4.jpg" />
+      </div>
+      <div class="painting-item">
+        <img src="assets/2022-5.jpg" alt="نقاشی 2022 - 5" data-fullsrc="assets/2022-5.jpg" />
+      </div>
+      <div class="painting-item">
+        <img src="assets/2022-6.jpg" alt="نقاشی 2022 - 6" data-fullsrc="assets/2022-6.jpg" />
+      </div>
+    </section>
+  </main>
+
+    <div id="myModal" class="modal">
+        <span class="close-button">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+
+  <script>
+    // فعال کردن منوی Collections در نوبار
+    const currentPage = window.location.pathname;
+    if (currentPage.includes('biography')) {
+      document.getElementById('bio').classList.add('active');
+    } else if (currentPage.includes('collections')) {
+      document.getElementById('coll').classList.add('active');
+    } else if (currentPage.includes('contact')) {
+      document.getElementById('contact').classList.add('active');
+    }
+
+    // --- JavaScript for Lightbox ---
+    const modal = document.getElementById("myModal");
+    const modalImg = document.getElementById("img01");
+    const closeBtn = document.getElementsByClassName("close-button")[0];
+    const galleryImages = document.querySelectorAll(".painting-item img"); // انتخاب تمام تصاویر گالری
+
+    galleryImages.forEach(img => {
+        img.onclick = function(){
+            modal.style.display = "flex"; // نمایش مدال به صورت flex
+            modalImg.src = this.dataset.fullsrc || this.src; // استفاده از data-fullsrc اگر تعریف شده بود، در غیر این صورت src
+            // اگر نیاز به alt text در مدال هم دارید، می توانید اضافه کنید
+            // captionText.innerHTML = this.alt;
+        }
+    });
+
+    closeBtn.onclick = function() {
+        modal.style.display = "none"; // بستن مدال
+    }
+
+    // بستن مدال با کلیک روی پس‌زمینه تاریک
+    modal.onclick = function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    // بستن مدال با فشردن کلید Escape
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && modal.style.display === 'flex') {
+            modal.style.display = 'none';
+        }
+    });
+
+  </script>
+
+</body>
+</html>
