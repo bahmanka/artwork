@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <title>B.K.A | Vomit Collection</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0 20px 40px 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #fff;
+            direction: rtl;
+            color: #222;
+        }
+
+        header {
+            padding: 40px 20px 10px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 16px;
+            margin: 5px 0 10px;
+            font-weight: normal;
+            color: #555;
+        }
+
+        .separator {
+            width: 60%;
+            height: 2px;
+            background-color: #000;
+            margin: 0 auto 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            user-select: none;
+            direction: ltr;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            padding: 5px 10px;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #000;
+            font-weight: bold;
+        }
+
+        .divider {
+            width: 1px;
+            height: 20px;
+            background-color: #999;
+        }
+
+        main.content-wrapper {
+            display: flex;
+            align-items: flex-start;
+            max-width: 1050px;
+            margin: 0 auto;
+            direction: ltr;
+            padding-left: 20px;
+        }
+
+        .left-side-container {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            margin-right: 40px;
+            flex-shrink: 0;
+            direction: ltr;
+        }
+
+        .left-side-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-top: 5px;
+            margin-right: 15px;
+        }
+
+        .left-side-title {
+            white-space: nowrap;
+            font-weight: bold;
+            font-size: 20px;
+            color: #222;
+            margin-bottom: 15px;
+        }
+
+        .left-side-description {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+            text-align: justify;
+            max-width: 250px;
+        }
+
+        .left-line {
+            width: 3px;
+            background-color: #000;
+            border-radius: 2px;
+            min-height: 900px; /* بیشتر از حالت سه ستونی چون تعداد ردیف‌ها بیشتر شده */
+            align-self: stretch;
+            flex-shrink: 0;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* تغییر داده شده: ۲ ستون */
+            gap: 30px;
+            flex-grow: 1;
+        }
+
+        .image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .image-box {
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            overflow: hidden;
+            width: 220px;
+            height: 220px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .image-box:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .image-details {
+            font-size: 15px;
+            line-height: 1.4;
+            color: #555;
+        }
+
+        .image-details .title {
+            font-weight: bold;
+            color: #222;
+        }
+
+        .image-details .year {
+            color: #e91e63;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>B.K.A</h1>
+        <h2>Designer and Painter</h2>
+        <div class="separator"></div>
+
+        <nav>
+            <a href="home.html" class="menu-item" id="home">Home</a>
+            <div class="divider"></div>
+            <a href="biography.html" class="menu-item" id="bio">Biography</a>
+            <div class="divider"></div>
+            <a href="collections.html" class="menu-item active" id="coll">Collections</a>
+            <div class="divider"></div>
+            <a href="contact.html" class="menu-item" id="contact">Contact Me</a>
+        </nav>
+    </header>
+
+    <main class="content-wrapper">
+        <div class="left-side-container">
+            <div class="left-side-content">
+                <span class="left-side-title">Vomit</span>
+                <p class="left-side-description">
+                    Exit by squeezing the contents of the stomach of living things through the mouth and sometimes
+                    through the nose. These contents can be eaten food or other substances in the
+                    gastrointestinal tract such as bile. Vomiting may be due to the type of
+                    substance ingested (for example, rotten food) or the brain reaction due to
+                    tumors, pregnancy, nervous stress, and so on. The condition that occurs in a
+                    patient before vomiting is called nausea (feeling of uplift).
+                </p>
+            </div>
+            <div class="left-line"></div>
+        </div>
+
+        <div class="image-gallery">
+            <div class="image-container">
+                <div class="image-box">
+                    <img src="assets/vomit1.jpg" alt="Vomit Artwork 1">
+                </div>
+                <div class="image-details">
+                    <span class="title">Vomit</span>, Oil on cardboard, 24 × 34 cm, <span class="year">2022</span>
+                </div>
+            </div>
+            <div class="image-container">
+                <div class="image-box">
+                    <img src="assets/vomit2.jpg" alt="Vomit Artwork 2">
+                </div>
+                <div class="image-details">
+                    <span class="title">Vomit</span>, Oil on cardboard, 24 × 34 cm, <span class="year">2022</span>
+                </div>
+            </div>
+            <div class="image-container">
+                <div class="image-box">
+                    <img src="assets/vomit3.jpg" alt="Vomit Artwork 3">
+                </div>
+                <div class="image-details">
+                    <span class="title">Vomit</span>, Oil on cardboard, 24 × 34 cm, <span class="year">2022</span>
+                </div>
+            </div>
+            <div class="image-container">
+                <div class="image-box">
+                    <img src="assets/vomit4.jpg" alt="Vomit Artwork 4">
+                </div>
+                <div class="image-details">
+                    <span class="title">Vomit</span>, Oil on cardboard, 24 × 34 cm, <span class="year">2022</span>
+                </div>
+            </div>
+            <div class="image-container">
+                <div class="image-box">
+                    <img src="assets/vomit5.jpg" alt="Vomit Artwork 5">
+                </div>
+                <div class="image-details">
+                    <span class="title">Vomit</span>, Oil on cardboard, 24 × 34 cm, <span class="year">2022</span>
+                </div>
+            </div>
+            <div class="image-container">
+                <div class="image-box">
+                    <img src="assets/vomit6.jpg" alt="Vomit Artwork 6">
+                </div>
+                <div class="image-details">
+                    <span class="title">Vomit</span>, Oil on cardboard, 24 × 34 cm, <span class="year">2022</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const currentPage = window.location.pathname;
+
+        if (currentPage.includes('home.html') || currentPage === '/' || currentPage === '') {
+            document.getElementById('home').classList.add('active');
+        } else if (currentPage.includes('biography')) {
+            document.getElementById('bio').classList.add('active');
+        } else if (currentPage.includes('collections') || currentPage.includes('vomit.html')) {
+            document.getElementById('coll').classList.add('active');
+        } else if (currentPage.includes('contact')) {
+            document.getElementById('contact').classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
