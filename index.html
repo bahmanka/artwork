@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ورود | B.K.A</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+      font-family: Arial, sans-serif;
+    }
+
+    .circle {
+      width: 80px;
+      height: 80px;
+      background-color: black;
+      border-radius: 50%;
+      color: white;
+      font-size: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      animation: floatRandom 3s ease-in-out infinite alternate;
+      transition: opacity 0.5s ease;
+      z-index: 2;
+    }
+
+    @keyframes floatRandom {
+      0%   { transform: translate(0px, 0px); }
+      20%  { transform: translate(5px, -3px); }
+      40%  { transform: translate(-4px, 6px); }
+      60%  { transform: translate(6px, -5px); }
+      80%  { transform: translate(-6px, 3px); }
+      100% { transform: translate(3px, -4px); }
+    }
+
+    /* لودینگ */
+    .loader {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border: 4px solid #ccc;
+      border-top: 4px solid black;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      display: none;
+      z-index: 1;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* حالت موبایل */
+    @media (max-width: 600px) {
+      .circle {
+        width: 60px;
+        height: 60px;
+        font-size: 16px;
+      }
+
+      .loader {
+        width: 30px;
+        height: 30px;
+        border-width: 3px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="circle" onclick="enterSite()">B.K.A</div>
+  <div class="loader" id="loader"></div>
+
+  <script>
+    function enterSite() {
+      const circle = document.querySelector('.circle');
+      const loader = document.getElementById('loader');
+
+      // مخفی کردن انیمیشن شناور و اعمال افکت محو شدن
+      circle.style.animation = 'none';
+      circle.style.opacity = '0';
+
+      // نمایش لودینگ
+      loader.style.display = 'block';
+
+      // صبر، سپس انتقال به home.html
+      setTimeout(() => {
+        window.location.href = "./home.html";
+      }, 2000); // زمان تأخیر: 2 ثانیه
+    }
+  </script>
+
+</body>
+</html>
