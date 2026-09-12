@@ -1,0 +1,21 @@
+{
+  "name": "Bahman Kiani Azad — Painter",
+  "short_name": "B.K.A",
+  "description": "Portfolio of Bahman Kiani Azad — painter based in Ardabil, Iran.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#f4ede1",
+  "theme_color": "#171310",
+  "icons": [
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

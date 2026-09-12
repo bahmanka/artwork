@@ -4,109 +4,59 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>B.K.A | Home</title>
+  <meta name="description" content="Bahman Kiani Azad — painter based in Ardabil and Tehran, Iran. Figurative paintings, exhibitions and collections.">
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#171310">
+
+  <meta property="og:title" content="B.K.A | Home">
+  <meta property="og:description" content="Bahman Kiani Azad — painter based in Ardabil and Tehran, Iran. Figurative paintings, exhibitions and collections.">
+  <meta property="og:image" content="https://bahmanka.github.io/artwork/assets/studio.jpg">
+  <meta property="og:url" content="https://bahmanka.github.io/artwork/home.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="B.K.A | Home">
+  <meta name="twitter:description" content="Bahman Kiani Azad — painter based in Ardabil and Tehran, Iran. Figurative paintings, exhibitions and collections.">
+  <meta name="twitter:image" content="https://bahmanka.github.io/artwork/assets/studio.jpg">
   <link rel="stylesheet" href="style.css">
-  <style>
-    .hero-figure{
-      max-width:920px;
-      margin:8px auto 0;
-      padding:0 24px;
-    }
-    .hero-figure .frame{
-      position:relative;
-      overflow:hidden;
-      box-shadow:0 30px 60px -30px rgba(23,19,16,0.35);
-    }
-    .hero-figure img{
-      width:100%;
-      height:auto;
-      display:block;
-      -webkit-mask-image: repeating-linear-gradient(90deg,
-        #000 0, #000 8px, transparent 8px, transparent 14px,
-        #000 14px, #000 26px, transparent 26px, transparent 30px,
-        #000 30px, #000 34px, transparent 34px, transparent 44px,
-        #000 44px, #000 60px, transparent 60px, transparent 64px);
-      mask-image: repeating-linear-gradient(90deg,
-        #000 0, #000 8px, transparent 8px, transparent 14px,
-        #000 14px, #000 26px, transparent 26px, transparent 30px,
-        #000 30px, #000 34px, transparent 34px, transparent 44px,
-        #000 44px, #000 60px, transparent 60px, transparent 64px);
-    }
-    .hero-figure .frame::before{
-      content:'';
-      position:absolute;
-      inset:0;
-      background:var(--paper-dim);
-      z-index:-1;
-    }
-    .caption{
-      max-width:920px;
-      margin:14px auto 60px;
-      padding:0 24px;
-      display:flex;
-      justify-content:space-between;
-      font-size:13px;
-      color:var(--clay);
-      letter-spacing:0.02em;
-    }
-    .intro{
-      max-width:640px;
-      margin:0 auto 90px;
-      padding:0 24px;
-      text-align:center;
-    }
-    .intro p{
-      font-family:var(--display);
-      font-weight:600;
-      font-size:16px;
-      line-height:1.7;
-      color:var(--ink);
-      letter-spacing:-0.005em;
-    }
-  </style>
 </head>
 <body>
-
   <header class="site-header">
-    <h1 class="mark">B.K.A</h1>
-    <p class="byline">Bahman Kiani Azad</p>
-    <p class="role">Painter</p>
-    <hr class="header-rule">
+    <div class="brand-lockup">
+      <h1 class="mark">B.K.A</h1>
+      <p class="byline">Bahman Kiani Azad — Painter</p>
+    </div>
     <nav class="site-nav">
-      <a href="home.html" class="menu-item" id="home">Home</a>
-      <a href="biography.html" class="menu-item" id="bio">Biography</a>
-      <a href="collections.html" class="menu-item" id="coll">Collections</a>
-      <a href="contact.html" class="menu-item" id="contact">Contact</a>
+      <a href="home.html" class="active">Home</a>
+      <a href="biography.html">Biography</a>
+      <a href="collections.html">Collections</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <div class="hero-figure">
-    <div class="frame">
-      <img src="assets/my-paint1.jpg" alt="Painting by Bahman Kiani Azad — figures beneath an umbrella of water, with donkeys and a flowering tree" />
+  <div class="hero">
+    <div class="hero-frame">
+      <img src="assets/studio.jpg" alt="Bahman Kiani Azad's painting studio" />
     </div>
-  </div>
-  <div class="caption">
-    <span>Untitled, acrylic on canvas</span>
-    <span>2019</span>
+    <div class="hero-meta">
+      <span>The studio</span>
+      <span>Ardabil</span>
+    </div>
   </div>
 
   <div class="intro">
-    <p>When someone tries to forget something, it means forgetting isn't easy for them; it means they care about what they're trying to forget.</p>
+    <blockquote>
+      When someone tries to forget something, it means forgetting isn't easy for them; it means <em>they care about what they're trying to forget.</em>
+    </blockquote>
   </div>
 
-  <div style="height:60px"></div>
-
-  <script>
-    const currentPage = window.location.pathname;
-    if (currentPage.includes('home.html') || currentPage === '/' || currentPage === '') {
-      document.getElementById('home').classList.add('active');
-    } else if (currentPage.includes('biography')) {
-      document.getElementById('bio').classList.add('active');
-    } else if (currentPage.includes('collections')) {
-      document.getElementById('coll').classList.add('active');
-    } else if (currentPage.includes('contact')) {
-      document.getElementById('contact').classList.add('active');
-    }
-  </script>
-
+  <footer class="site-footer">
+    <span>© 2026 Bahman Kiani Azad</span>
+    <span>Tehran — Ardabil</span>
+  </footer>
 </body>
 </html>

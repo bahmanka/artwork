@@ -4,116 +4,63 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>B.K.A | Collections</title>
+  <meta name="description" content="A chronological archive of paintings by Bahman Kiani Azad, from 2010 to 2022.">
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#171310">
+
+  <meta property="og:title" content="B.K.A | Collections">
+  <meta property="og:description" content="A chronological archive of paintings by Bahman Kiani Azad, from 2010 to 2022.">
+  <meta property="og:image" content="https://bahmanka.github.io/artwork/assets/my-paint1.jpg">
+  <meta property="og:url" content="https://bahmanka.github.io/artwork/collections.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="B.K.A | Collections">
+  <meta name="twitter:description" content="A chronological archive of paintings by Bahman Kiani Azad, from 2010 to 2022.">
+  <meta name="twitter:image" content="https://bahmanka.github.io/artwork/assets/my-paint1.jpg">
   <link rel="stylesheet" href="style.css">
-  <style>
-    .stripe-box{
-      max-width:920px;
-      margin:8px auto 40px;
-      padding:0 24px;
-    }
-    .stripe-box .frame{
-      position:relative;
-      overflow:hidden;
-      aspect-ratio:1339 / 887;
-      background:repeating-linear-gradient(90deg,
-        var(--paper-dim) 0, var(--paper-dim) 8px, var(--paper) 8px, var(--paper) 14px,
-        var(--paper-dim) 14px, var(--paper-dim) 26px, var(--paper) 26px, var(--paper) 30px,
-        var(--paper-dim) 30px, var(--paper-dim) 34px, var(--paper) 34px, var(--paper) 44px,
-        var(--paper-dim) 44px, var(--paper-dim) 60px, var(--paper) 60px, var(--paper) 64px);
-      box-shadow:0 30px 60px -30px rgba(23,19,16,0.25);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-    .years{
-      position:relative;
-      z-index:1;
-      max-width:640px;
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
-      gap:18px 16px;
-      padding:20px;
-    }
-    .years a{
-      text-decoration:none;
-      color:var(--ink);
-      font-family:var(--display);
-      font-weight:700;
-      font-size:22px;
-      letter-spacing:-0.01em;
-      padding:10px 22px;
-      border:1px solid var(--line);
-      border-radius:999px;
-      background:var(--paper);
-      transition:border-color 0.3s ease, color 0.3s ease, background 0.3s ease, backdrop-filter 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .years a:hover, .years a.active{
-      border-color:rgba(255,255,255,0.5);
-      color:var(--brick);
-      background:rgba(255,255,255,0.35);
-      backdrop-filter:blur(10px) saturate(1.6);
-      -webkit-backdrop-filter:blur(10px) saturate(1.6);
-      box-shadow:0 8px 24px -8px rgba(23,19,16,0.25), inset 0 1px 0 rgba(255,255,255,0.6);
-      transform:translateY(-2px);
-    }
-    @media (max-width:640px){
-      .stripe-box .frame{ aspect-ratio:auto; min-height:320px; }
-      .years{ gap:12px; padding:16px; }
-      .years a{ font-size:18px; padding:8px 16px; }
-    }
-  </style>
 </head>
 <body>
-
   <header class="site-header">
-    <h1 class="mark">B.K.A</h1>
-    <p class="byline">Bahman Kiani Azad</p>
-    <p class="role">Painter</p>
-    <hr class="header-rule">
+    <div class="brand-lockup">
+      <h1 class="mark">B.K.A</h1>
+      <p class="byline">Bahman Kiani Azad — Painter</p>
+    </div>
     <nav class="site-nav">
-      <a href="home.html" class="menu-item" id="home">Home</a>
-      <a href="biography.html" class="menu-item" id="bio">Biography</a>
-      <a href="collections.html" class="menu-item" id="coll">Collections</a>
-      <a href="contact.html" class="menu-item" id="contact">Contact</a>
+      <a href="home.html">Home</a>
+      <a href="biography.html">Biography</a>
+      <a href="collections.html" class="active">Collections</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <div class="stripe-box">
-    <div class="frame">
-      <main class="years">
-        <a href="2022.html" class="year-link" id="year-2022">2022</a>
-        <a href="2020.html" class="year-link" id="year-2020">2020</a>
-        <a href="2019.html" class="year-link" id="year-2019">2019</a>
-        <a href="2016.html" class="year-link" id="year-2016">2016</a>
-        <a href="2015.html" class="year-link" id="year-2015">2015</a>
-        <a href="2014.html" class="year-link" id="year-2014">2014</a>
-        <a href="2013.html" class="year-link" id="year-2013">2013</a>
-        <a href="2012.html" class="year-link" id="year-2012">2012</a>
-        <a href="2011.html" class="year-link" id="year-2011">2011</a>
-        <a href="2010.html" class="year-link" id="year-2010">2010</a>
-      </main>
-    </div>
+  <div class="page-head">
+    <h2>Collections</h2>
+    <p>A chronological archive of works from 2010 to 2022. Each year is a chapter in an ongoing study of coexistence, memory and the body.</p>
   </div>
 
-  <script>
-    const currentPage = window.location.pathname;
-    if (currentPage.includes('home.html') || currentPage === '/' || currentPage === '') {
-      document.getElementById('home').classList.add('active');
-    } else if (currentPage.includes('biography')) {
-      document.getElementById('bio').classList.add('active');
-    } else if (currentPage.includes('collections')) {
-      document.getElementById('coll').classList.add('active');
-    } else if (currentPage.includes('contact')) {
-      document.getElementById('contact').classList.add('active');
-    }
+  <div class="years-grid">
+    <a href="2022.html" class="year-card"><span class="year">2022</span><div class="info"><span class="title">Vomit</span><span class="count">13 works</span></div></a>
+    <a href="2021.html" class="year-card"><span class="year">2021</span><div class="info"><span class="title">Archive</span><span class="count">—</span></div></a>
+    <a href="2020.html" class="year-card"><span class="year">2020</span><div class="info"><span class="title">Coexistence</span><span class="count">5 works</span></div></a>
+    <a href="2019.html" class="year-card"><span class="year">2019</span><div class="info"><span class="title">Untitled series</span><span class="count">6 works</span></div></a>
+    <a href="2017.html" class="year-card"><span class="year">2017</span><div class="info"><span class="title">Untitled series</span><span class="count">2 works</span></div></a>
+    <a href="2016.html" class="year-card"><span class="year">2016</span><div class="info"><span class="title">Untitled series</span><span class="count">3 works</span></div></a>
+    <a href="2015.html" class="year-card"><span class="year">2015</span><div class="info"><span class="title">Archive</span><span class="count">—</span></div></a>
+    <a href="2014.html" class="year-card"><span class="year">2014</span><div class="info"><span class="title">Archive</span><span class="count">—</span></div></a>
+    <a href="2013.html" class="year-card"><span class="year">2013</span><div class="info"><span class="title">Archive</span><span class="count">—</span></div></a>
+    <a href="2012.html" class="year-card"><span class="year">2012</span><div class="info"><span class="title">Archive</span><span class="count">—</span></div></a>
+    <a href="2011.html" class="year-card"><span class="year">2011</span><div class="info"><span class="title">Archive</span><span class="count">—</span></div></a>
+    <a href="2010.html" class="year-card"><span class="year">2010</span><div class="info"><span class="title">Untitled series</span><span class="count">5 works</span></div></a>
+  </div>
 
-    const yearLinks = document.querySelectorAll('.year-link');
-    const currentFile = currentPage.split('/').pop();
-    yearLinks.forEach(link => {
-      if (link.getAttribute('href') === currentFile) link.classList.add('active');
-    });
-  </script>
-
+  <footer class="site-footer">
+    <span>© 2026 Bahman Kiani Azad</span>
+    <span>Tehran — Ardabil</span>
+  </footer>
 </body>
 </html>

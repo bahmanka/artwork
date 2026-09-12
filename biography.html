@@ -2,192 +2,82 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>B.K.A | Biography</title>
+  <title>Bahman Kiani Azad | Biography</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Biography of Bahman Kiani Azad — painter born in Ardabil, Iran, 1988. Solo and group exhibitions from 2006 to 2024.">
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#171310">
+
+  <meta property="og:title" content="Bahman Kiani Azad | Biography">
+  <meta property="og:description" content="Biography of Bahman Kiani Azad — painter born in Ardabil, Iran, 1988. Solo and group exhibitions from 2006 to 2024.">
+  <meta property="og:image" content="https://bahmanka.github.io/artwork/assets/my-photo.jpg">
+  <meta property="og:url" content="https://bahmanka.github.io/artwork/biography.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bahman Kiani Azad | Biography">
+  <meta name="twitter:description" content="Biography of Bahman Kiani Azad — painter born in Ardabil, Iran, 1988. Solo and group exhibitions from 2006 to 2024.">
+  <meta name="twitter:image" content="https://bahmanka.github.io/artwork/assets/my-photo.jpg">
   <link rel="stylesheet" href="style.css">
-  <style>
-    .bio-hero{
-      max-width:920px;
-      margin:8px auto 0;
-      padding:0 24px;
-    }
-    .bio-hero .frame{
-      position:relative;
-      overflow:hidden;
-      background:repeating-linear-gradient(90deg,
-        var(--paper-dim) 0, var(--paper-dim) 8px, var(--paper) 8px, var(--paper) 14px,
-        var(--paper-dim) 14px, var(--paper-dim) 26px, var(--paper) 26px, var(--paper) 30px,
-        var(--paper-dim) 30px, var(--paper-dim) 34px, var(--paper) 34px, var(--paper) 44px,
-        var(--paper-dim) 44px, var(--paper-dim) 60px, var(--paper) 60px, var(--paper) 64px);
-      box-shadow:0 30px 60px -30px rgba(23,19,16,0.25);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:44px 24px;
-    }
-    .bio-wrap{
-      position:relative;
-      z-index:1;
-      max-width:640px;
-      margin:0;
-      padding:0;
-      display:flex;
-      align-items:center;
-      gap:32px;
-    }
-    .portrait{
-      width:150px;
-      height:150px;
-      border-radius:50%;
-      overflow:hidden;
-      flex-shrink:0;
-      box-shadow:0 0 0 1px var(--line), 0 20px 40px -20px rgba(23,19,16,0.4);
-    }
-    .portrait img{
-      width:100%; height:100%; object-fit:cover; display:block;
-    }
-    .bio-head .name{
-      font-family:var(--display);
-      font-size:30px;
-      font-weight:700;
-      letter-spacing:-0.01em;
-      margin:6px 0 4px;
-    }
-    .bio-head .born{
-      color:var(--clay);
-      font-size:14px;
-      margin:0 0 14px;
-    }
-    .bio-head .edu{
-      font-size:14.5px;
-      line-height:1.8;
-      color:#3a332c;
-      margin:0;
-    }
-
-    .bio-section{
-      max-width:760px;
-      margin:0 auto;
-      padding:0 24px;
-    }
-
-    .section-rule{
-      border:none;
-      height:4px;
-      width:100%;
-      background:var(--brick);
-      border-radius:2px;
-      margin:44px 0 22px;
-    }
-
-    .section-title{
-      font-family:var(--display);
-      font-weight:700;
-      font-size:19px;
-      margin:0 0 16px;
-      letter-spacing:-0.01em;
-    }
-
-    .exhibit-list{
-      list-style:none;
-      margin:0;
-      padding:0;
-    }
-    .exhibit-list li{
-      display:flex;
-      justify-content:space-between;
-      gap:16px;
-      font-size:15px;
-      line-height:2;
-      color:#3a332c;
-      border-bottom:1px solid var(--line);
-      padding:6px 0;
-    }
-    .exhibit-list li:last-child{ border-bottom:none; }
-    .exhibit-list .where{ flex:1; }
-    .exhibit-list .when{
-      color:var(--clay);
-      font-variant-numeric:tabular-nums;
-      flex-shrink:0;
-    }
-
-    @media (max-width:640px){
-      .bio-hero .frame{ padding:32px 20px; }
-      .bio-wrap{ flex-direction:column; align-items:center; text-align:center; }
-      .exhibit-list li{ font-size:14px; }
-    }
-  </style>
 </head>
 <body>
-
   <header class="site-header">
-    <h1 class="mark">B.K.A</h1>
-    <p class="byline">Bahman Kiani Azad</p>
-    <p class="role">Painter</p>
-    <hr class="header-rule">
+    <div class="brand-lockup">
+      <h1 class="mark">B.K.A</h1>
+      <p class="byline">Bahman Kiani Azad — Painter</p>
+    </div>
     <nav class="site-nav">
-      <a href="home.html" class="menu-item" id="home">Home</a>
-      <a href="biography.html" class="menu-item" id="bio">Biography</a>
-      <a href="collections.html" class="menu-item" id="coll">Collections</a>
-      <a href="contact.html" class="menu-item" id="contact">Contact</a>
+      <a href="home.html">Home</a>
+      <a href="biography.html" class="active">Biography</a>
+      <a href="collections.html">Collections</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <main>
-    <div class="bio-hero">
-      <div class="frame">
-        <div class="bio-wrap">
-          <div class="portrait">
-            <img src="assets/my-photo.jpg.jpg" alt="Bahman Kiani Azad" />
-          </div>
-          <div class="bio-head">
-            <p class="name">Bahman Kiani Azad</p>
-            <p class="born">Born in Ardabil, Iran — 1988</p>
-            <p class="edu">Bachelor of Art, Soore University, Tehran<br>M.A. in Art Research, Islamic Azad University, Tehran</p>
-          </div>
-        </div>
+  <div class="bio-layout">
+    <aside class="bio-side">
+      <div class="portrait">
+        <img src="assets/my-photo.jpg" alt="Bahman Kiani Azad" />
       </div>
-    </div>
+      <p class="name">Bahman<br>Kiani Azad</p>
+      <p class="born">Born in Ardabil, Iran — 1988</p>
+      <p class="edu">Bachelor of Art, Soore University, Tehran<br>M.A. in Art Research, Islamic Azad University, Tehran</p>
+    </aside>
+    <main class="bio-main">
+      <div class="section">
+        <p class="section-title">Solo exhibitions</p>
+        <ul class="exhibit-list">
+          <li><span class="where">Jhaleh Gallery, Tehran</span><span class="when">2024</span></li>
+          <li><span class="where">Fadak Gallery, Ardabil</span><span class="when">2016</span></li>
+          <li><span class="where">Hoor Gallery, Tehran</span><span class="when">2011</span></li>
+          <li><span class="where">Fadak Gallery, Ardabil</span><span class="when">2006</span></li>
+        </ul>
+      </div>
+      <div class="section">
+        <p class="section-title">Group exhibitions</p>
+        <ul class="exhibit-list">
+          <li><span class="where">Night, Mika Gallery, Kish</span><span class="when">2021</span></li>
+          <li><span class="where">Modern Artists, Avae Honar Gallery, Tehran</span><span class="when">2021</span></li>
+          <li><span class="where">Secret Art Show, Milan</span><span class="when">2019</span></li>
+          <li><span class="where">Art Expo Hormuz, Hormuz Island</span><span class="when">2019</span></li>
+          <li><span class="where">To Save Children, Goharan Gallery, Tehran</span><span class="when">2017</span></li>
+          <li><span class="where">Fajr Festival (two editions)</span><span class="when">2010–2011</span></li>
+          <li><span class="where">Booklet Exhibition, Tarahane Azad Gallery</span><span class="when">2011</span></li>
+          <li><span class="where">Damonfar Festival (two editions)</span><span class="when">2007–2010</span></li>
+          <li><span class="where">Young Art Festival, selected design</span><span class="when">2008</span></li>
+          <li><span class="where">Dr. Sondozi Design Festival</span><span class="when">2007</span></li>
+        </ul>
+      </div>
+    </main>
+  </div>
 
-    <div class="bio-section">
-      <hr class="section-rule">
-      <p class="section-title">Solo exhibitions</p>
-      <ul class="exhibit-list">
-        <li><span class="where">Jhaleh Gallery, Tehran</span><span class="when">2024</span></li>
-        <li><span class="where">Fadak Gallery, Ardabil</span><span class="when">2016</span></li>
-        <li><span class="where">Hoor Gallery, Tehran</span><span class="when">2011</span></li>
-        <li><span class="where">Fadak Gallery, Ardabil</span><span class="when">2006</span></li>
-      </ul>
-
-      <hr class="section-rule">
-      <p class="section-title">Group exhibitions</p>
-      <ul class="exhibit-list">
-        <li><span class="where">Night, Mika Gallery, Kish</span><span class="when">2021</span></li>
-        <li><span class="where">Modern Artists, Avae Honar Gallery, Tehran</span><span class="when">2021</span></li>
-        <li><span class="where">Secret Art Show, Milan</span><span class="when">2019</span></li>
-        <li><span class="where">Art Expo Hormuz, Hormuz Island</span><span class="when">2019</span></li>
-        <li><span class="where">To Save Children, Goharan Gallery, Tehran</span><span class="when">2017</span></li>
-        <li><span class="where">Fajr Festival (two editions)</span><span class="when">2010–2011</span></li>
-        <li><span class="where">Booklet Exhibition, Tarahane Azad Gallery</span><span class="when">2011</span></li>
-        <li><span class="where">Damonfar Festival (two editions)</span><span class="when">2007–2010</span></li>
-        <li><span class="where">Young Art Festival, selected design</span><span class="when">2008</span></li>
-        <li><span class="where">Dr. Sondozi Design Festival</span><span class="when">2007</span></li>
-      </ul>
-    </div>
-  </main>
-
-  <script>
-    const currentPage = window.location.pathname;
-    if (currentPage.includes('home.html') || currentPage === '/' || currentPage === '') {
-      document.getElementById('home').classList.add('active');
-    } else if (currentPage.includes('biography')) {
-      document.getElementById('bio').classList.add('active');
-    } else if (currentPage.includes('collections')) {
-      document.getElementById('coll').classList.add('active');
-    } else if (currentPage.includes('contact')) {
-      document.getElementById('contact').classList.add('active');
-    }
-  </script>
-
+  <footer class="site-footer">
+    <span>© 2026 Bahman Kiani Azad</span>
+    <span>Tehran — Ardabil</span>
+  </footer>
 </body>
 </html>
