@@ -1,273 +1,103 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>B.K.A | Collections</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>B.K.A | Collections</title>
+  <link rel="stylesheet" href="style.css">
   <style>
-    body {
-      margin: 0;
-      padding: 0 20px 40px 20px;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: #fff;
-      direction: rtl;
-      color: #222;
+    .stripe-box{
+      max-width:920px;
+      margin:8px auto 40px;
+      padding:0 24px;
     }
-
-    header {
-      padding: 40px 20px 10px;
-      text-align: center;
+    .stripe-box .frame{
+      position:relative;
+      overflow:hidden;
+      aspect-ratio:1339 / 887;
+      background:repeating-linear-gradient(90deg,
+        var(--paper-dim) 0, var(--paper-dim) 8px, var(--paper) 8px, var(--paper) 14px,
+        var(--paper-dim) 14px, var(--paper-dim) 26px, var(--paper) 26px, var(--paper) 30px,
+        var(--paper-dim) 30px, var(--paper-dim) 34px, var(--paper) 34px, var(--paper) 44px,
+        var(--paper-dim) 44px, var(--paper-dim) 60px, var(--paper) 60px, var(--paper) 64px);
+      box-shadow:0 30px 60px -30px rgba(23,19,16,0.25);
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
-
-    h1 {
-      font-size: 48px;
-      margin: 0;
+    .years{
+      position:relative;
+      z-index:1;
+      max-width:640px;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:18px 16px;
+      padding:20px;
     }
-
-    h2 {
-      font-size: 16px;
-      margin: 5px 0 10px;
-      font-weight: normal;
-      color: #555;
+    .years a{
+      text-decoration:none;
+      color:var(--ink);
+      font-family:var(--display);
+      font-weight:700;
+      font-size:22px;
+      letter-spacing:-0.01em;
+      padding:10px 22px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:var(--paper);
+      transition:border-color 0.3s ease, color 0.3s ease, background 0.3s ease, backdrop-filter 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     }
-
-    .separator {
-      width: 60%;
-      height: 2px;
-      background-color: #000;
-      margin: 0 auto 20px;
+    .years a:hover, .years a.active{
+      border-color:rgba(255,255,255,0.5);
+      color:var(--brick);
+      background:rgba(255,255,255,0.35);
+      backdrop-filter:blur(10px) saturate(1.6);
+      -webkit-backdrop-filter:blur(10px) saturate(1.6);
+      box-shadow:0 8px 24px -8px rgba(23,19,16,0.25), inset 0 1px 0 rgba(255,255,255,0.6);
+      transform:translateY(-2px);
     }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap; /* اضافه شده برای شکستن خط در موبایل */
-      gap: 15px; /* کاهش فاصله برای موبایل */
-      margin-bottom: 40px;
-      user-select: none;
-      direction: ltr;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #333;
-      font-size: 18px;
-      padding: 5px 10px;
-      transition: color 0.3s;
-      cursor: pointer;
-    }
-
-    nav a:hover,
-    nav a.active {
-      color: #000;
-      font-weight: bold;
-    }
-
-    .divider {
-      width: 1px;
-      height: 20px;
-      background-color: #999;
-    }
-
-    main.content-wrapper {
-      display: flex;
-      gap: 0;
-      max-width: 900px;
-      margin: 0 auto; /* [اصلاح شد] برای وسط چین شدن در صفحه نمایش بزرگتر */
-      align-items: flex-start;
-      direction: ltr;
-      padding: 0 10px; /* اضافه شده برای فاصله از کناره ها در موبایل */
-    }
-
-    /* خط عمودی سمت چپ */
-    .left-line {
-      width: 3px;
-      background-color: #000;
-      border-radius: 2px;
-      height: auto;
-      align-self: stretch;
-      margin-left: 0;
-    }
-
-    /* متن سمت راست خط */
-    .text-section {
-      flex: 1;
-      font-size: 18px;
-      line-height: 2;
-      color: #333;
-      text-align: left;
-      white-space: normal;
-      padding-left: 20px;
-      max-width: 500px; /* حداکثر عرض حفظ شود */
-    }
-
-    .text-section ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .text-section li {
-      margin-bottom: 12px;
-    }
-
-    /* استایل لینک سال‌ها */
-    .year-link {
-      text-decoration: none;
-      color: #333;
-      font-size: 18px;
-      padding: 4px 8px;
-      display: inline-block;
-      transition: color 0.3s;
-      cursor: pointer;
-    }
-
-    .year-link:hover {
-      color: #000;
-      font-weight: bold;
-    }
-
-    .year-link.active {
-      color: #000;
-      font-weight: bold;
-      border-bottom: 2px solid #000;
-    }
-
-    /* Media Queries برای ریسپانسیو */
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 36px; /* کاهش اندازه عنوان در موبایل */
-      }
-
-      h2 {
-        font-size: 14px; /* کاهش اندازه زیرعنوان در موبایل */
-      }
-
-      .separator {
-        width: 80%; /* افزایش عرض جداکننده در موبایل */
-      }
-
-      nav {
-        flex-direction: column; /* چیدمان منو به صورت ستونی در موبایل */
-        gap: 10px;
-        margin-bottom: 30px;
-      }
-
-      nav a {
-        font-size: 16px; /* کاهش اندازه فونت منو در موبایل */
-        padding: 5px 0; /* حذف پدینگ چپ و راست برای تمام عرض */
-      }
-
-      .divider {
-        display: none; /* حذف جداکننده ها در حالت ستونی منو */
-      }
-
-      main.content-wrapper {
-        flex-direction: column; /* چیدمان ستونی برای محتوا و خط در موبایل */
-        align-items: center; /* وسط چین شدن آیتم ها */
-        margin: 0 auto; /* [اصلاح شد] برای وسط چین شدن در موبایل */
-        padding: 0 10px;
-      }
-
-      .left-line {
-        width: 80%; /* تبدیل خط عمودی به افقی در موبایل */
-        height: 3px;
-        margin-bottom: 20px; /* فاصله از متن */
-        margin-left: 0; /* حذف مارجین چپ */
-      }
-
-      .text-section {
-        padding-left: 0; /* حذف پدینگ چپ برای وسط چین شدن */
-        text-align: center; /* وسط چین شدن متن */
-        max-width: 100%; /* استفاده از تمام عرض موجود */
-      }
-
-      .text-section ul {
-        display: flex; /* برای چیدمان افقی لینک‌های سال در موبایل */
-        flex-wrap: wrap;
-        justify-content: center; /* وسط چین شدن لینک‌ها */
-        gap: 10px; /* فاصله بین لینک‌ها */
-      }
-
-      .text-section li {
-        margin-bottom: 0; /* حذف مارجین پایین */
-      }
-
-      .year-link {
-        font-size: 16px; /* کاهش اندازه فونت لینک سال */
-        padding: 6px 10px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      body {
-        padding: 0 10px 20px 10px; /* کاهش پدینگ کلی در صفحه های کوچک تر */
-      }
-
-      header {
-        padding: 20px 10px 5px;
-      }
-
-      h1 {
-        font-size: 30px;
-      }
-
-      h2 {
-        font-size: 12px;
-      }
-
-      nav a {
-        font-size: 15px;
-      }
-
-      .year-link {
-        font-size: 14px;
-        padding: 5px 8px;
-      }
+    @media (max-width:640px){
+      .stripe-box .frame{ aspect-ratio:auto; min-height:320px; }
+      .years{ gap:12px; padding:16px; }
+      .years a{ font-size:18px; padding:8px 16px; }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>B.K.A</h1>
-    <h2>Designer and Painter</h2>
-    <div class="separator"></div>
-
-    <nav>
+  <header class="site-header">
+    <h1 class="mark">B.K.A</h1>
+    <p class="byline">Bahman Kiani Azad</p>
+    <p class="role">Painter</p>
+    <hr class="header-rule">
+    <nav class="site-nav">
       <a href="home.html" class="menu-item" id="home">Home</a>
-      <div class="divider"></div>
       <a href="biography.html" class="menu-item" id="bio">Biography</a>
-      <div class="divider"></div>
       <a href="collections.html" class="menu-item" id="coll">Collections</a>
-      <div class="divider"></div>
-      <a href="contact.html" class="menu-item" id="contact">Contact Me</a>
+      <a href="contact.html" class="menu-item" id="contact">Contact</a>
     </nav>
   </header>
 
-  <main class="content-wrapper">
-    <div class="left-line"></div>
-
-    <div class="text-section">
-      <ul>
-        <li><a href="2022.html" class="year-link" id="year-2022">• 2022</a></li>
-        <li><a href="2020.html" class="year-link" id="year-2020">• 2020</a></li>
-        <li><a href="2019.html" class="year-link" id="year-2019">• 2019</a></li>
-        <li><a href="2016.html" class="year-link" id="year-2016">• 2016</a></li>
-        <li><a href="2015.html" class="year-link" id="year-2015">• 2015</a></li>
-        <li><a href="2014.html" class="year-link" id="year-2014">• 2014</a></li>
-        <li><a href="2013.html" class="year-link" id="year-2013">• 2013</a></li>
-        <li><a href="2012.html" class="year-link" id="year-2012">• 2012</a></li>
-        <li><a href="2011.html" class="year-link" id="year-2011">• 2011</a></li>
-        <li><a href="2010.html" class="year-link" id="year-2010">• 2010</a></li>
-      </ul>
+  <div class="stripe-box">
+    <div class="frame">
+      <main class="years">
+        <a href="2022.html" class="year-link" id="year-2022">2022</a>
+        <a href="2020.html" class="year-link" id="year-2020">2020</a>
+        <a href="2019.html" class="year-link" id="year-2019">2019</a>
+        <a href="2016.html" class="year-link" id="year-2016">2016</a>
+        <a href="2015.html" class="year-link" id="year-2015">2015</a>
+        <a href="2014.html" class="year-link" id="year-2014">2014</a>
+        <a href="2013.html" class="year-link" id="year-2013">2013</a>
+        <a href="2012.html" class="year-link" id="year-2012">2012</a>
+        <a href="2011.html" class="year-link" id="year-2011">2011</a>
+        <a href="2010.html" class="year-link" id="year-2010">2010</a>
+      </main>
     </div>
-  </main>
+  </div>
 
   <script>
-    // فعال کردن منوی مربوط به صفحه جاری
     const currentPage = window.location.pathname;
-
     if (currentPage.includes('home.html') || currentPage === '/' || currentPage === '') {
       document.getElementById('home').classList.add('active');
     } else if (currentPage.includes('biography')) {
@@ -278,14 +108,10 @@
       document.getElementById('contact').classList.add('active');
     }
 
-    // فعال کردن کلاس active روی لینک سال بر اساس آدرس صفحه
     const yearLinks = document.querySelectorAll('.year-link');
     const currentFile = currentPage.split('/').pop();
-
     yearLinks.forEach(link => {
-      if(link.getAttribute('href') === currentFile) {
-        link.classList.add('active');
-      }
+      if (link.getAttribute('href') === currentFile) link.classList.add('active');
     });
   </script>
 

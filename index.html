@@ -1,234 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>B.K.A</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    body {
-      height: 100vh;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      overflow: hidden;
-      font-family: 'Arial Black', Arial, sans-serif;
-      padding-left: 80px;
-      position: relative;
-    }
-    
-    /* پس‌زمینه تصویر */
-    .background-image {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('my-paint2.jpg') center/cover no-repeat;
-      z-index: -2;
-    }
-    
-    /* لایه شفاف برای بهتر دیده شدن متن */
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 50%;
-      height: 100%;
-      background: linear-gradient(90deg, 
-        rgba(255, 255, 255, 0.9) 0%, 
-        rgba(255, 255, 255, 0.7) 70%, 
-        rgba(255, 255, 255, 0) 100%);
-      z-index: -1;
-    }
-    
-    .content-container {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      position: relative;
-      z-index: 1;
-    }
-    
-    .brand-text {
-      font-size: 120px;
-      font-weight: 900;
-      color: #000;
-      line-height: 0.9;
-      letter-spacing: -5px;
-      margin-bottom: 10px;
-      font-family: 'Arial Black', sans-serif;
-      text-shadow: 2px 2px 4px rgba(255,255,255,0.5);
-    }
-    
-    .subtitle {
-      font-size: 32px;
-      font-weight: bold;
-      color: #000;
-      margin-bottom: 40px;
-      letter-spacing: 1px;
-      font-family: 'Arial', sans-serif;
-      text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
-    }
-    
-    .red-circle {
-      width: 80px;
-      height: 80px;
-      background: #c41e3a;
-      border-radius: 50%;
-      cursor: pointer;
-      position: relative;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(196, 30, 58, 0.3);
-      border: none;
-      outline: none;
-    }
-    
-    .red-circle:hover {
-      transform: scale(1.1);
-      box-shadow: 0 6px 20px rgba(196, 30, 58, 0.5);
-      background: #d32f47;
-    }
-    
-    .red-circle:active {
-      transform: scale(0.95);
-      transition: all 0.1s ease;
-    }
-    
-    /* انیمیشن کلیک */
-    @keyframes clickPulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.2); }
-      100% { transform: scale(1); }
-    }
-    
-    .red-circle.clicked {
-      animation: clickPulse 0.4s ease;
-    }
-    
-    /* Responsive Design */
-    @media (max-width: 1200px) {
-      body {
-        padding-left: 60px;
-      }
-      .brand-text {
-        font-size: 90px;
-      }
-      .subtitle {
-        font-size: 28px;
-      }
-      .red-circle {
-        width: 70px;
-        height: 70px;
-      }
-      .overlay {
-        width: 60%;
-      }
-    }
-    
-    @media (max-width: 768px) {
-      body {
-        padding-left: 40px;
-        justify-content: center;
-        text-align: center;
-      }
-      .content-container {
-        align-items: center;
-      }
-      .brand-text {
-        font-size: 70px;
-        letter-spacing: -3px;
-      }
-      .subtitle {
-        font-size: 24px;
-        margin-bottom: 30px;
-      }
-      .red-circle {
-        width: 60px;
-        height: 60px;
-      }
-      .overlay {
-        width: 100%;
-        background: rgba(255, 255, 255, 0.8);
-      }
-    }
-    
-    @media (max-width: 480px) {
-      body {
-        padding-left: 20px;
-      }
-      .brand-text {
-        font-size: 50px;
-        letter-spacing: -2px;
-      }
-      .subtitle {
-        font-size: 20px;
-      }
-      .red-circle {
-        width: 50px;
-        height: 50px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B.K.A — Bahman Kiani Azad</title>
+<meta name="description" content="Bahman Kiani Azad — painter. Portfolio and exhibitions.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap');
+
+  :root{
+    --paper:#f4ede1;
+    --ink:#171310;
+    --brick:#c4392f;
+    --clay:#8a6b4a;
+  }
+
+  *{ box-sizing:border-box; }
+
+  html,body{
+    margin:0; padding:0; height:100%;
+    background:#0f1215;
+    overflow:hidden;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  }
+
+  .stage{
+    position:relative;
+    width:100%;
+    height:100vh;
+    height:100dvh;
+    overflow:hidden;
+  }
+
+  /* sharp painting layer, revealed only near the cursor via a mask */
+  .art-sharp{
+    position:absolute;
+    inset:-2%;
+    width:104%;
+    height:104%;
+    background-image:url('assets/my-paint1.jpg');
+    background-size:cover;
+    background-position:52% 45%;
+    transition:transform 0.6s ease-out;
+    -webkit-mask-image:radial-gradient(circle 220px at var(--mx,50%) var(--my,38%), rgba(0,0,0,1) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0) 100%);
+    mask-image:radial-gradient(circle 220px at var(--mx,50%) var(--my,38%), rgba(0,0,0,1) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0) 100%);
+  }
+
+  /* blurred painting layer, always visible as the ambient backdrop */
+  .art-blur{
+    position:absolute;
+    inset:-2%;
+    width:104%;
+    height:104%;
+    background-image:url('assets/my-paint1.jpg');
+    background-size:cover;
+    background-position:52% 45%;
+    filter:blur(26px) saturate(0.9) brightness(0.62);
+    transform:scale(1.06);
+    transition:transform 0.6s ease-out;
+  }
+
+  .tint{
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(15,18,21,0.35) 0%, rgba(15,18,21,0.15) 40%, rgba(15,18,21,0.55) 100%);
+    pointer-events:none;
+  }
+
+  .grain{
+    position:absolute; inset:0;
+    pointer-events:none;
+    opacity:0.05;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .content{
+    position:relative;
+    z-index:2;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:0 24px;
+  }
+
+  .brand{
+    font-family:'Helvetica Now Display','Helvetica Neue',Helvetica,Inter,Arial,sans-serif;
+    font-weight:700;
+    color:var(--paper);
+    font-size:clamp(64px, 13vw, 160px);
+    line-height:0.92;
+    letter-spacing:-0.02em;
+    margin:0;
+    will-change:transform;
+    transition:transform 0.15s ease-out;
+    text-shadow:0 8px 40px rgba(0,0,0,0.35);
+  }
+
+  .byline{
+    font-family:'Inter',sans-serif;
+    font-size:clamp(15px, 1.8vw, 20px);
+    letter-spacing:0.01em;
+    color:rgba(244,237,225,0.9);
+    margin:18px 0 2px;
+    font-weight:500;
+    will-change:transform;
+    transition:transform 0.2s ease-out;
+  }
+
+  .role{
+    font-size:clamp(13px, 1.4vw, 16px);
+    letter-spacing:0.06em;
+    color:rgba(244,237,225,0.6);
+    margin:0 0 46px;
+    font-weight:500;
+    text-transform:uppercase;
+    will-change:transform;
+    transition:transform 0.2s ease-out;
+  }
+
+  .enter{
+    -webkit-appearance:none;
+    appearance:none;
+    border:1.5px solid rgba(244,237,225,0.55);
+    background:transparent;
+    color:var(--paper);
+    width:84px;
+    height:84px;
+    border-radius:50%;
+    cursor:pointer;
+    position:relative;
+    font-family:'Inter',sans-serif;
+    font-size:12px;
+    letter-spacing:0.08em;
+    font-weight:600;
+    will-change:transform;
+    transition:transform 0.2s ease-out, background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  }
+
+  .enter:hover{
+    background:var(--brick);
+    border-color:var(--brick);
+    color:var(--paper);
+  }
+
+  .enter.clicked{ animation:pulse 0.4s ease; }
+  @keyframes pulse{ 50%{ transform:scale(1.15); } }
+
+  .hint{
+    position:absolute;
+    bottom:34px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:2;
+    color:rgba(244,237,225,0.5);
+    font-size:12px;
+    letter-spacing:0.06em;
+    pointer-events:none;
+  }
+
+  @media (max-width:768px){
+    .art-sharp, .art-blur{ background-position:62% 40%; }
+    .hint{ display:none; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .art-sharp, .art-blur, .brand, .role, .enter{ transition:none; }
+  }
+</style>
 </head>
 <body>
-  <!-- پس‌زمینه تصویر -->
-  <div class="background-image"></div>
-  
-  <!-- لایه شفاف برای جلوگیری از تداخل متن با تصویر -->
-  <div class="overlay"></div>
-  
-  <div class="content-container">
-    <div class="brand-text">B.K.A</div>
-    <div class="subtitle">Painter &<br>Designer</div>
-    <button class="red-circle" onclick="enterSite()"></button>
+
+  <div class="stage" id="stage">
+    <div class="art-blur" id="artBlur"></div>
+    <div class="art-sharp" id="artSharp"></div>
+    <div class="tint"></div>
+    <div class="grain"></div>
+
+    <div class="content">
+      <h1 class="brand" id="brand">B.K.A</h1>
+      <p class="byline" id="byline">Bahman Kiani Azad</p>
+      <p class="role" id="role">Painter</p>
+      <button class="enter" id="enterBtn" aria-label="Enter site">ENTER</button>
+    </div>
+
+    <div class="hint">move your cursor across the canvas</div>
   </div>
 
   <script>
-    function enterSite() {
-      const circle = document.querySelector('.red-circle');
-      
-      // ویبره کردن گوشی (اگر پشتیبانی شود)
-      if (navigator.vibrate) {
-        navigator.vibrate(200);
-      }
-      
-      // افکت کلیک سریع
-      circle.classList.add('clicked');
-      
-      // انتقال مستقیم به صفحه بعدی
-      setTimeout(() => {
-        window.location.href = "home.html";
-      }, 300);
+    const stage = document.getElementById('stage');
+    const artSharp = document.getElementById('artSharp');
+    const artBlur = document.getElementById('artBlur');
+    const brand = document.getElementById('brand');
+    const byline = document.getElementById('byline');
+    const role = document.getElementById('role');
+    const btn = document.getElementById('enterBtn');
+
+    let targetX = 50, targetY = 38;
+    let curX = 50, curY = 38;
+
+    function onMove(clientX, clientY){
+      const rect = stage.getBoundingClientRect();
+      const px = ((clientX - rect.left) / rect.width) * 100;
+      const py = ((clientY - rect.top) / rect.height) * 100;
+      targetX = px;
+      targetY = py;
+
+      const nx = (px - 50) / 50;   // -1 .. 1
+      const ny = (py - 50) / 50;
+
+      brand.style.transform = `translate(${nx * 14}px, ${ny * 10}px)`;
+      byline.style.transform = `translate(${nx * 9}px, ${ny * 7}px)`;
+      role.style.transform = `translate(${nx * 7}px, ${ny * 5}px)`;
+      btn.style.transform = `translate(${nx * 10}px, ${ny * 8}px)`;
+
+      artBlur.style.transform = `scale(1.06) translate(${-nx * 12}px, ${-ny * 12}px)`;
+      artSharp.style.transform = `translate(${-nx * 18}px, ${-ny * 18}px)`;
     }
-    
-    // جلوگیری از کلیک مکرر
-    let isClicked = false;
-    document.querySelector('.red-circle').addEventListener('click', function() {
-      if (!isClicked) {
-        isClicked = true;
-      }
-    });
-    
-    // افزودن ویبره هنگام hover در موبایل
-    document.querySelector('.red-circle').addEventListener('mouseenter', function() {
-      if (navigator.vibrate) {
-        navigator.vibrate(50);
-      }
-    });
-    
-    // Loading animation
-    window.addEventListener('load', function() {
-      document.body.style.opacity = '0';
-      document.body.style.transition = 'opacity 0.5s ease';
-      setTimeout(() => {
-        document.body.style.opacity = '1';
-      }, 100);
+
+    window.addEventListener('mousemove', e => onMove(e.clientX, e.clientY));
+    window.addEventListener('touchmove', e => {
+      if (e.touches[0]) onMove(e.touches[0].clientX, e.touches[0].clientY);
+    }, { passive:true });
+
+    function raf(){
+      curX += (targetX - curX) * 0.08;
+      curY += (targetY - curY) * 0.08;
+      artSharp.style.setProperty('--mx', curX + '%');
+      artSharp.style.setProperty('--my', curY + '%');
+      requestAnimationFrame(raf);
+    }
+    raf();
+
+    btn.addEventListener('click', () => {
+      if (navigator.vibrate) navigator.vibrate(60);
+      btn.classList.add('clicked');
+      setTimeout(() => { window.location.href = 'home.html'; }, 320);
     });
   </script>
 </body>

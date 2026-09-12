@@ -1,319 +1,183 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>B.K.A | Biography</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css">
   <style>
-    body {
-      margin: 0;
-      padding: 0 20px 40px 20px;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: #fff;
-      direction: ltr;
-      color: #222;
+    .bio-hero{
+      max-width:920px;
+      margin:8px auto 0;
+      padding:0 24px;
+    }
+    .bio-hero .frame{
+      position:relative;
+      overflow:hidden;
+      background:repeating-linear-gradient(90deg,
+        var(--paper-dim) 0, var(--paper-dim) 8px, var(--paper) 8px, var(--paper) 14px,
+        var(--paper-dim) 14px, var(--paper-dim) 26px, var(--paper) 26px, var(--paper) 30px,
+        var(--paper-dim) 30px, var(--paper-dim) 34px, var(--paper) 34px, var(--paper) 44px,
+        var(--paper-dim) 44px, var(--paper-dim) 60px, var(--paper) 60px, var(--paper) 64px);
+      box-shadow:0 30px 60px -30px rgba(23,19,16,0.25);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:44px 24px;
+    }
+    .bio-wrap{
+      position:relative;
+      z-index:1;
+      max-width:640px;
+      margin:0;
+      padding:0;
+      display:flex;
+      align-items:center;
+      gap:32px;
+    }
+    .portrait{
+      width:150px;
+      height:150px;
+      border-radius:50%;
+      overflow:hidden;
+      flex-shrink:0;
+      box-shadow:0 0 0 1px var(--line), 0 20px 40px -20px rgba(23,19,16,0.4);
+    }
+    .portrait img{
+      width:100%; height:100%; object-fit:cover; display:block;
+    }
+    .bio-head .name{
+      font-family:var(--display);
+      font-size:30px;
+      font-weight:700;
+      letter-spacing:-0.01em;
+      margin:6px 0 4px;
+    }
+    .bio-head .born{
+      color:var(--clay);
+      font-size:14px;
+      margin:0 0 14px;
+    }
+    .bio-head .edu{
+      font-size:14.5px;
+      line-height:1.8;
+      color:#3a332c;
+      margin:0;
     }
 
-    header {
-      padding: 40px 20px 10px;
-      text-align: center;
+    .bio-section{
+      max-width:760px;
+      margin:0 auto;
+      padding:0 24px;
     }
 
-    h1 {
-      font-size: 48px;
-      margin: 0;
+    .section-rule{
+      border:none;
+      height:4px;
+      width:100%;
+      background:var(--brick);
+      border-radius:2px;
+      margin:44px 0 22px;
     }
 
-    h2 {
-      font-size: 16px;
-      margin: 5px 0 10px;
-      font-weight: normal;
-      color: #555;
+    .section-title{
+      font-family:var(--display);
+      font-weight:700;
+      font-size:19px;
+      margin:0 0 16px;
+      letter-spacing:-0.01em;
     }
 
-    .separator {
-      width: 60%;
-      height: 2px;
-      background-color: #000;
-      margin: 0 auto 20px;
+    .exhibit-list{
+      list-style:none;
+      margin:0;
+      padding:0;
+    }
+    .exhibit-list li{
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      font-size:15px;
+      line-height:2;
+      color:#3a332c;
+      border-bottom:1px solid var(--line);
+      padding:6px 0;
+    }
+    .exhibit-list li:last-child{ border-bottom:none; }
+    .exhibit-list .where{ flex:1; }
+    .exhibit-list .when{
+      color:var(--clay);
+      font-variant-numeric:tabular-nums;
+      flex-shrink:0;
     }
 
-    nav {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-bottom: 40px;
-      user-select: none;
-      direction: ltr;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #333;
-      font-size: 18px;
-      padding: 5px 10px;
-      transition: color 0.3s;
-      cursor: pointer;
-    }
-
-    nav a:hover,
-    nav a.active {
-      color: #000;
-      font-weight: bold;
-    }
-
-    .divider {
-      width: 1px;
-      height: 20px;
-      background-color: #999;
-    }
-
-    .content-wrapper {
-      display: flex;
-      max-width: 800px;
-      margin: 0 auto;
-      align-items: flex-start;
-      justify-content: flex-start;
-      direction: ltr;
-      padding: 0 10px;
-      gap: 20px;
-    }
-
-    .left-line {
-      width: 3px;
-      background-color: #000;
-      border-radius: 2px;
-      height: auto;
-      align-self: stretch;
-      margin: 0;
-    }
-
-    .bio-text {
-      flex: 1;
-      font-size: 15px;
-      line-height: 1.8;
-      color: #444;
-      text-align: left;
-      white-space: normal;
-      padding-left: 0;
-      max-width: 500px;
-    }
-
-    .bio-text ul {
-      padding-inline-start: 20px;
-      list-style: none;
-    }
-
-    .bio-text ul ul {
-      padding-inline-start: 20px;
-    }
-
-    .bio-text li {
-      margin-bottom: 8px;
-      position: relative;
-    }
-
-    .bio-text ul ul li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      color: #000;
-      font-weight: bold;
-    }
-
-    .bio-text > ul > li::before {
-      content: none;
-    }
-
-    .bold-name {
-      font-weight: bold;
-      margin-bottom: 16px;
-      font-size: 16px;
-    }
-
-    .bold-title {
-      font-weight: bold;
-      margin-top: 20px;
-      margin-bottom: 8px;
-      font-size: 15px;
-    }
-
-    .profile-circle {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      overflow: hidden;
-      flex-shrink: 0;
-      box-shadow: 0 0 8px rgba(0,0,0,0.15);
-      background-color: #eee;
-      position: relative;
-      margin-left: 0;
-      margin-right: 0;
-    }
-
-    .profile-circle img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 36px;
-      }
-
-      h2 {
-        font-size: 14px;
-      }
-
-      .separator {
-        width: 80%;
-      }
-
-      nav {
-        flex-direction: column;
-        gap: 10px;
-        margin-bottom: 30px;
-      }
-
-      nav a {
-        font-size: 16px;
-        padding: 5px 0;
-      }
-
-      .divider {
-        display: none;
-      }
-
-      .content-wrapper {
-        flex-direction: column;
-        align-items: center;
-        margin: 0 auto;
-        padding: 0 10px;
-        direction: rtl;
-      }
-
-      .left-line {
-        width: 80%;
-        height: 3px;
-        margin: 20px 0;
-      }
-
-      .profile-circle {
-        margin: 0 auto 20px;
-        order: 0;
-      }
-
-      .bio-text {
-        padding-left: 0;
-        text-align: center;
-        max-width: 100%;
-      }
-
-      .bio-text ul,
-      .bio-text ul ul {
-        padding-inline-start: 0;
-        text-align: center;
-      }
-
-      .bio-text li {
-        text-align: center;
-      }
-
-      .bio-text ul ul li::before {
-        content: none;
-      }
-    }
-
-    @media (max-width: 480px) {
-      body {
-        padding: 0 10px 20px 10px;
-      }
-
-      header {
-        padding: 20px 10px 5px;
-      }
-
-      h1 {
-        font-size: 30px;
-      }
-
-      h2 {
-        font-size: 12px;
-      }
-
-      nav a {
-        font-size: 15px;
-      }
-
-      .profile-circle {
-        width: 120px;
-        height: 120px;
-      }
+    @media (max-width:640px){
+      .bio-hero .frame{ padding:32px 20px; }
+      .bio-wrap{ flex-direction:column; align-items:center; text-align:center; }
+      .exhibit-list li{ font-size:14px; }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>B.K.A</h1>
-    <h2>Designer and Painter</h2>
-    <div class="separator"></div>
-    <nav>
+  <header class="site-header">
+    <h1 class="mark">B.K.A</h1>
+    <p class="byline">Bahman Kiani Azad</p>
+    <p class="role">Painter</p>
+    <hr class="header-rule">
+    <nav class="site-nav">
       <a href="home.html" class="menu-item" id="home">Home</a>
-      <div class="divider"></div>
       <a href="biography.html" class="menu-item" id="bio">Biography</a>
-      <div class="divider"></div>
       <a href="collections.html" class="menu-item" id="coll">Collections</a>
-      <div class="divider"></div>
-      <a href="contact.html" class="menu-item" id="contact">Contact Me</a>
+      <a href="contact.html" class="menu-item" id="contact">Contact</a>
     </nav>
   </header>
 
-  <main class="content-wrapper">
-    <div class="profile-circle">
-      <img src="/artwork/assets/my-photo.jpg.jpg" alt="Bahman Kiani Azad" />
+  <main>
+    <div class="bio-hero">
+      <div class="frame">
+        <div class="bio-wrap">
+          <div class="portrait">
+            <img src="assets/my-photo.jpg.jpg" alt="Bahman Kiani Azad" />
+          </div>
+          <div class="bio-head">
+            <p class="name">Bahman Kiani Azad</p>
+            <p class="born">Born in Ardabil, Iran — 1988</p>
+            <p class="edu">Bachelor of Art, Soore University, Tehran<br>M.A. in Art Research, Islamic Azad University, Tehran</p>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="left-line"></div>
+    <div class="bio-section">
+      <hr class="section-rule">
+      <p class="section-title">Solo exhibitions</p>
+      <ul class="exhibit-list">
+        <li><span class="where">Jhaleh Gallery, Tehran</span><span class="when">2024</span></li>
+        <li><span class="where">Fadak Gallery, Ardabil</span><span class="when">2016</span></li>
+        <li><span class="where">Hoor Gallery, Tehran</span><span class="when">2011</span></li>
+        <li><span class="where">Fadak Gallery, Ardabil</span><span class="when">2006</span></li>
+      </ul>
 
-    <div class="bio-text">
-      <ul>
-        <li class="bold-name">Bahman Kiani Azad</li>
-        <li>Born in Ardebil-Iran 1988</li>
-        <li>Bachelor of art from The University of soore of Tehran</li>
-        <li>Master's degree in Art Research of Tehran Azad University</li>
-        <li>Master's degree in Art Research, Islamic Azad University, Tehran</li>
-        <li class="bold-title">Solo exhibition:</li>
-        <ul>
-          <li>Tehran, Jhaleh Gallery 2024</li>
-          <li>Ardabil-Iran- Fadak Gallery 2016</li>
-          <li>Tehran-Iran- Hoor Gallery 2011</li>
-          <li>Ardabil-Iran- Fadak Gallery 2006</li>
-        </ul>
-        <li class="bold-title">Group exhibition:</li>
-        <ul>
-          <li>Night-Mika Gallery-Kish-2021</li>
-          <li>Modern Artists-Avae Honar Gallery-Tehran-2021</li>
-          <li>Secret Art Show,Milan Spring 2019</li>
-          <li>Art Expo Hormuz.Hormuz Island,H school 2019</li>
-          <li>To save children, Goharan gallery- Tehran-2017</li>
-          <li>Participated in two festivals of Fajr 200-2011</li>
-          <li>Participation in the booklet exhibition, the gallery of Tarahane azad 2011</li>
-          <li>Participate in two festivals of Damonfar, 2007-2010</li>
-          <li>Selected Design of the Young Art Festival 2008</li>
-          <li>Participated in Dr. Sondozi 2007 Design Festival</li>
-        </ul>
+      <hr class="section-rule">
+      <p class="section-title">Group exhibitions</p>
+      <ul class="exhibit-list">
+        <li><span class="where">Night, Mika Gallery, Kish</span><span class="when">2021</span></li>
+        <li><span class="where">Modern Artists, Avae Honar Gallery, Tehran</span><span class="when">2021</span></li>
+        <li><span class="where">Secret Art Show, Milan</span><span class="when">2019</span></li>
+        <li><span class="where">Art Expo Hormuz, Hormuz Island</span><span class="when">2019</span></li>
+        <li><span class="where">To Save Children, Goharan Gallery, Tehran</span><span class="when">2017</span></li>
+        <li><span class="where">Fajr Festival (two editions)</span><span class="when">2010–2011</span></li>
+        <li><span class="where">Booklet Exhibition, Tarahane Azad Gallery</span><span class="when">2011</span></li>
+        <li><span class="where">Damonfar Festival (two editions)</span><span class="when">2007–2010</span></li>
+        <li><span class="where">Young Art Festival, selected design</span><span class="when">2008</span></li>
+        <li><span class="where">Dr. Sondozi Design Festival</span><span class="when">2007</span></li>
       </ul>
     </div>
   </main>
 
   <script>
     const currentPage = window.location.pathname;
-
     if (currentPage.includes('home.html') || currentPage === '/' || currentPage === '') {
       document.getElementById('home').classList.add('active');
     } else if (currentPage.includes('biography')) {
