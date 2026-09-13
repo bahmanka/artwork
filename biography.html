@@ -28,14 +28,15 @@
   <header class="site-header">
     <div class="brand-lockup">
       <h1 class="mark">B.K.A</h1>
-      <p class="byline">Bahman Kiani Azad — Painter</p>
+      <p class="byline" data-i18n="brand.byline">Bahman Kiani Azad — Painter</p>
     </div>
     <nav class="site-nav">
-      <a href="home.html">Home</a>
-      <a href="biography.html" class="active">Biography</a>
-      <a href="collections.html">Collections</a>
-      <a href="contact.html">Contact</a>
+      <a href="home.html" data-i18n="nav.home">Home</a>
+      <a href="biography.html" class="active" data-i18n="nav.biography">Biography</a>
+      <a href="collections.html" data-i18n="nav.collections">Collections</a>
+      <a href="contact.html" data-i18n="nav.contact">Contact</a>
     </nav>
+    <button id="langToggle" class="lang-toggle" aria-label="Switch to Persian">FA</button>
   </header>
 
   <div class="bio-layout">
@@ -43,41 +44,43 @@
       <div class="portrait">
         <img src="assets/my-photo.jpg" alt="Bahman Kiani Azad" />
       </div>
-      <p class="name">Bahman<br>Kiani Azad</p>
-      <p class="born">Born in Ardabil, Iran — 1988</p>
-      <p class="edu">Bachelor of Art, Soore University, Tehran<br>M.A. in Art Research, Islamic Azad University, Tehran</p>
+      <p class="name" data-i18n="bio.name">Bahman<br>Kiani Azad</p>
+      <p class="born" data-i18n="bio.born">Born in Ardabil, Iran — 1988</p>
+      <p class="edu" data-i18n="bio.edu">Bachelor of Art, Soore University, Tehran<br>M.A. in Art Research, Islamic Azad University, Tehran</p>
     </aside>
     <main class="bio-main">
       <div class="section">
-        <p class="section-title">Solo exhibitions</p>
+        <p class="section-title" data-i18n="bio.section.solo">Solo exhibitions</p>
         <ul class="exhibit-list">
-          <li><span class="where">Jhaleh Gallery, Tehran</span><span class="when">2024</span></li>
-          <li><span class="where">Fadak Gallery, Ardabil</span><span class="when">2016</span></li>
-          <li><span class="where">Hoor Gallery, Tehran</span><span class="when">2011</span></li>
-          <li><span class="where">Fadak Gallery, Ardabil</span><span class="when">2006</span></li>
+          <li><span class="where" data-i18n="bio.solo.1">Jhaleh Gallery, Tehran</span><span class="when">2024</span></li>
+          <li><span class="where" data-i18n="bio.solo.2">Fadak Gallery, Ardabil</span><span class="when">2016</span></li>
+          <li><span class="where" data-i18n="bio.solo.3">Hoor Gallery, Tehran</span><span class="when">2011</span></li>
+          <li><span class="where" data-i18n="bio.solo.4">Fadak Gallery, Ardabil</span><span class="when">2006</span></li>
         </ul>
       </div>
       <div class="section">
-        <p class="section-title">Group exhibitions</p>
+        <p class="section-title" data-i18n="bio.section.group">Group exhibitions</p>
         <ul class="exhibit-list">
-          <li><span class="where">Night, Mika Gallery, Kish</span><span class="when">2021</span></li>
-          <li><span class="where">Modern Artists, Avae Honar Gallery, Tehran</span><span class="when">2021</span></li>
-          <li><span class="where">Secret Art Show, Milan</span><span class="when">2019</span></li>
-          <li><span class="where">Art Expo Hormuz, Hormuz Island</span><span class="when">2019</span></li>
-          <li><span class="where">To Save Children, Goharan Gallery, Tehran</span><span class="when">2017</span></li>
-          <li><span class="where">Fajr Festival (two editions)</span><span class="when">2010–2011</span></li>
-          <li><span class="where">Booklet Exhibition, Tarahane Azad Gallery</span><span class="when">2011</span></li>
-          <li><span class="where">Damonfar Festival (two editions)</span><span class="when">2007–2010</span></li>
-          <li><span class="where">Young Art Festival, selected design</span><span class="when">2008</span></li>
-          <li><span class="where">Dr. Sondozi Design Festival</span><span class="when">2007</span></li>
+          <li><span class="where" data-i18n="bio.group.1">Night, Mika Gallery, Kish</span><span class="when">2021</span></li>
+          <li><span class="where" data-i18n="bio.group.2">Modern Artists, Avae Honar Gallery, Tehran</span><span class="when">2021</span></li>
+          <li><span class="where" data-i18n="bio.group.3">Secret Art Show, Milan</span><span class="when">2019</span></li>
+          <li><span class="where" data-i18n="bio.group.4">Art Expo Hormuz, Hormuz Island</span><span class="when">2019</span></li>
+          <li><span class="where" data-i18n="bio.group.5">To Save Children, Goharan Gallery, Tehran</span><span class="when">2017</span></li>
+          <li><span class="where" data-i18n="bio.group.6">Fajr Festival (two editions)</span><span class="when">2010–2011</span></li>
+          <li><span class="where" data-i18n="bio.group.7">Booklet Exhibition, Tarahane Azad Gallery</span><span class="when">2011</span></li>
+          <li><span class="where" data-i18n="bio.group.8">Damonfar Festival (two editions)</span><span class="when">2007–2010</span></li>
+          <li><span class="where" data-i18n="bio.group.9">Young Art Festival, selected design</span><span class="when">2008</span></li>
+          <li><span class="where" data-i18n="bio.group.10">Dr. Sondozi Design Festival</span><span class="when">2007</span></li>
         </ul>
       </div>
     </main>
   </div>
 
   <footer class="site-footer">
-    <span>© 2026 Bahman Kiani Azad</span>
-    <span>Tehran — Ardabil</span>
+    <span data-i18n="footer.copyright">© 2026 Bahman Kiani Azad</span>
+    <span data-i18n="footer.location">Tehran — Ardabil</span>
   </footer>
+  <script src="translations.js"></script>
+  <script src="i18n.js"></script>
 </body>
 </html>

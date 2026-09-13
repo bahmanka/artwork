@@ -3,7 +3,7 @@
    (our palette + typography, their structural layout)
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap');
 
 :root {
   --ink: #171310;
@@ -17,6 +17,10 @@
   --sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   --serif: 'Fraunces', Georgia, serif;
   --display: 'Helvetica Now Display', 'Helvetica Neue', Helvetica, 'Inter', Arial, sans-serif;
+
+  --sans-fa: 'Vazirmatn', Tahoma, sans-serif;
+  --display-fa: 'Vazirmatn', Tahoma, sans-serif;
+  --serif-fa: 'Vazirmatn', Tahoma, sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -108,6 +112,26 @@ a { color: inherit; }
 .site-nav a:hover::after { transform: scaleX(1); }
 .site-nav a.active { opacity: 1; color: var(--brick); }
 .site-nav a.active::after { transform: scaleX(1); }
+
+.lang-toggle {
+  appearance: none;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 6px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: border-color 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+.lang-toggle:hover {
+  border-color: var(--brick);
+  color: var(--brick);
+  background: rgba(196, 57, 47, 0.06);
+}
 
 /* ---------- HOME ---------- */
 
@@ -505,7 +529,30 @@ a { color: inherit; }
 /* ---------- RESPONSIVE ---------- */
 
 @media (max-width: 900px){
-  .site-header{ padding: 16px 20px; }
+  .site-header{
+    padding: 14px 18px;
+    flex-wrap: wrap;
+    row-gap: 12px;
+  }
+  .brand-lockup{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+  .byline{
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .site-nav{
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px 20px;
+  }
+  .lang-toggle{
+    margin-inline-start: auto;
+  }
   .hero{ padding: 16px 20px 0; }
   .page-head{ padding: 40px 20px 20px; }
   .years-grid{ padding: 0 20px; grid-template-columns: 1fr; }
@@ -514,4 +561,74 @@ a { color: inherit; }
   .contact-wrap{ grid-template-columns: 1fr; padding: 50px 20px 80px; }
   .site-footer{ padding: 20px; flex-direction: column; gap: 6px; }
   .intro{ padding: 0 20px; margin: 50px auto 70px; }
+}
+
+@media (max-width: 420px){
+  .byline{ font-size: 11px; }
+  .site-nav{ gap: 12px 16px; }
+  .site-nav a{ font-size: 11.5px; }
+}
+
+/* ---------- RTL / Persian overrides ---------- */
+
+body.lang-fa {
+  font-family: var(--sans-fa);
+}
+
+body.lang-fa .mark,
+body.lang-fa .page-head h2,
+body.lang-fa .coll-intro .title,
+body.lang-fa .year-card .year,
+body.lang-fa .contact-big,
+body.lang-fa .section-title,
+body.lang-fa .bio-side .name {
+  font-family: var(--display-fa);
+}
+
+body.lang-fa .byline,
+body.lang-fa .coll-intro p,
+body.lang-fa .year-card .title,
+body.lang-fa .intro blockquote em,
+body.lang-fa .exhibit-list .where {
+  font-family: var(--serif-fa);
+  font-style: normal;
+}
+
+body.lang-fa .site-nav {
+  direction: rtl;
+}
+
+body.lang-fa .exhibit-list li {
+  direction: rtl;
+}
+
+body.lang-fa .years-grid {
+  direction: rtl;
+}
+
+body.lang-fa .hero-meta,
+body.lang-fa .site-footer,
+body.lang-fa .contact-item {
+  direction: rtl;
+}
+
+body.lang-fa .contact-left {
+  flex-direction: row-reverse;
+}
+
+body.lang-fa .site-nav a::after {
+  right: 0;
+  left: auto;
+}
+
+/* numbers and dates stay LTR even in RTL flow */
+body.lang-fa .exhibit-list .when,
+body.lang-fa .year-card .year {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+@media (max-width: 900px){
+  body.lang-fa .site-nav { gap: 20px; }
+  body.lang-fa .brand-lockup{ align-items: flex-end; }
 }

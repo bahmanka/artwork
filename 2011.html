@@ -28,30 +28,33 @@
   <header class="site-header">
     <div class="brand-lockup">
       <h1 class="mark">B.K.A</h1>
-      <p class="byline">Bahman Kiani Azad — Painter</p>
+      <p class="byline" data-i18n="brand.byline">Bahman Kiani Azad — Painter</p>
     </div>
     <nav class="site-nav">
-      <a href="home.html">Home</a>
-      <a href="biography.html">Biography</a>
-      <a href="collections.html" class="active">Collections</a>
-      <a href="contact.html">Contact</a>
+      <a href="home.html" data-i18n="nav.home">Home</a>
+      <a href="biography.html" data-i18n="nav.biography">Biography</a>
+      <a href="collections.html" class="active" data-i18n="nav.collections">Collections</a>
+      <a href="contact.html" data-i18n="nav.contact">Contact</a>
     </nav>
+    <button id="langToggle" class="lang-toggle" aria-label="Switch to Persian">FA</button>
   </header>
 
   <div class="coll-intro">
     <p class="title">2011</p>
-    <p class="meta">Archive — 2011</p>
-    <p>Works from 2011 will be added here soon.</p>
+    <p class="meta"><span data-i18n="series.archive">Archive</span> — 2011</p>
+    <p data-i18n-year="2011" class="soon-text">Works from 2011 will be added here soon.</p>
   </div>
 
   <div class="gallery">
-    <p style="padding:40px 0;color:var(--clay);font-family:var(--serif);font-style:italic;">No images yet.</p>
+    <p style="padding:40px 0;color:var(--clay);font-family:var(--serif);font-style:italic;" data-i18n="gallery.empty">No images yet.</p>
   </div>
 
   <footer class="site-footer">
-    <span>© 2026 Bahman Kiani Azad</span>
+    <span data-i18n="footer.copyright">© 2026 Bahman Kiani Azad</span>
     <span>2011</span>
   </footer>
   <script src="lightbox.js"></script>
+  <script src="translations.js"></script>
+  <script src="i18n.js"></script>
 </body>
 </html>

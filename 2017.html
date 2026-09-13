@@ -28,31 +28,34 @@
   <header class="site-header">
     <div class="brand-lockup">
       <h1 class="mark">B.K.A</h1>
-      <p class="byline">Bahman Kiani Azad — Painter</p>
+      <p class="byline" data-i18n="brand.byline">Bahman Kiani Azad — Painter</p>
     </div>
     <nav class="site-nav">
-      <a href="home.html">Home</a>
-      <a href="biography.html">Biography</a>
-      <a href="collections.html" class="active">Collections</a>
-      <a href="contact.html">Contact</a>
+      <a href="home.html" data-i18n="nav.home">Home</a>
+      <a href="biography.html" data-i18n="nav.biography">Biography</a>
+      <a href="collections.html" class="active" data-i18n="nav.collections">Collections</a>
+      <a href="contact.html" data-i18n="nav.contact">Contact</a>
     </nav>
+    <button id="langToggle" class="lang-toggle" aria-label="Switch to Persian">FA</button>
   </header>
 
   <div class="coll-intro">
-    <p class="title">Untitled series</p>
-    <p class="meta">Watercolor and ink on paper — 2017</p>
-    <p>Silhouetted deer along a cliff's edge, a figure among roots and wire — sparse, earth-toned studies.</p>
+    <p class="title" data-i18n="series.untitled">Untitled series</p>
+    <p class="meta" data-i18n="gallery.2017.meta">Watercolor and ink on paper — 2017</p>
+    <p data-i18n="gallery.2017.desc">Silhouetted deer along a cliff's edge, a figure among roots and wire — sparse, earth-toned studies.</p>
   </div>
 
   <div class="gallery">
-    <figure><img src="assets/2017-1.jpg" alt="Untitled 2017" loading="lazy"><figcaption>Untitled, 2017</figcaption></figure>
-    <figure><img src="assets/2017-2.jpg" alt="Untitled 2017" loading="lazy"><figcaption>Untitled, 2017</figcaption></figure>
+    <figure><img src="assets/2017-1.jpg" alt="Untitled 2017" loading="lazy"><figcaption data-i18n="caption.untitled.2017">Untitled, 2017</figcaption></figure>
+    <figure><img src="assets/2017-2.jpg" alt="Untitled 2017" loading="lazy"><figcaption data-i18n="caption.untitled.2017">Untitled, 2017</figcaption></figure>
   </div>
 
   <footer class="site-footer">
-    <span>© 2026 Bahman Kiani Azad</span>
+    <span data-i18n="footer.copyright">© 2026 Bahman Kiani Azad</span>
     <span>2017</span>
   </footer>
   <script src="lightbox.js"></script>
+  <script src="translations.js"></script>
+  <script src="i18n.js"></script>
 </body>
 </html>

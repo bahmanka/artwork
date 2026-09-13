@@ -28,34 +28,37 @@
   <header class="site-header">
     <div class="brand-lockup">
       <h1 class="mark">B.K.A</h1>
-      <p class="byline">Bahman Kiani Azad — Painter</p>
+      <p class="byline" data-i18n="brand.byline">Bahman Kiani Azad — Painter</p>
     </div>
     <nav class="site-nav">
-      <a href="home.html">Home</a>
-      <a href="biography.html">Biography</a>
-      <a href="collections.html" class="active">Collections</a>
-      <a href="contact.html">Contact</a>
+      <a href="home.html" data-i18n="nav.home">Home</a>
+      <a href="biography.html" data-i18n="nav.biography">Biography</a>
+      <a href="collections.html" class="active" data-i18n="nav.collections">Collections</a>
+      <a href="contact.html" data-i18n="nav.contact">Contact</a>
     </nav>
+    <button id="langToggle" class="lang-toggle" aria-label="Switch to Persian">FA</button>
   </header>
 
   <div class="coll-intro">
-    <p class="title">Untitled series</p>
-    <p class="meta">Watercolor and ink on paper — 2010</p>
-    <p>Sepia-toned figures adrift among ships, storm clouds and paper boats — early work in watercolor and ink.</p>
+    <p class="title" data-i18n="series.untitled">Untitled series</p>
+    <p class="meta" data-i18n="gallery.2010.meta">Watercolor and ink on paper — 2010</p>
+    <p data-i18n="gallery.2010.desc">Sepia-toned figures adrift among ships, storm clouds and paper boats — early work in watercolor and ink.</p>
   </div>
 
   <div class="gallery">
-    <figure><img src="assets/2010-1.jpg" alt="Untitled 2010" loading="lazy"><figcaption>Untitled, 2010</figcaption></figure>
-    <figure><img src="assets/2010-2.jpg" alt="Untitled 2010" loading="lazy"><figcaption>Untitled, 2010</figcaption></figure>
-    <figure><img src="assets/2010-3.jpg" alt="Untitled 2010" loading="lazy"><figcaption>Untitled, 2010</figcaption></figure>
-    <figure><img src="assets/2010-4.jpg" alt="Untitled 2010" loading="lazy"><figcaption>Untitled, 2010</figcaption></figure>
-    <figure><img src="assets/2010-5.jpg" alt="Untitled 2010" loading="lazy"><figcaption>Untitled, 2010</figcaption></figure>
+    <figure><img src="assets/2010-1.jpg" alt="Untitled 2010" loading="lazy"><figcaption data-i18n="caption.untitled.2010">Untitled, 2010</figcaption></figure>
+    <figure><img src="assets/2010-2.jpg" alt="Untitled 2010" loading="lazy"><figcaption data-i18n="caption.untitled.2010">Untitled, 2010</figcaption></figure>
+    <figure><img src="assets/2010-3.jpg" alt="Untitled 2010" loading="lazy"><figcaption data-i18n="caption.untitled.2010">Untitled, 2010</figcaption></figure>
+    <figure><img src="assets/2010-4.jpg" alt="Untitled 2010" loading="lazy"><figcaption data-i18n="caption.untitled.2010">Untitled, 2010</figcaption></figure>
+    <figure><img src="assets/2010-5.jpg" alt="Untitled 2010" loading="lazy"><figcaption data-i18n="caption.untitled.2010">Untitled, 2010</figcaption></figure>
   </div>
 
   <footer class="site-footer">
-    <span>© 2026 Bahman Kiani Azad</span>
+    <span data-i18n="footer.copyright">© 2026 Bahman Kiani Azad</span>
     <span>2010</span>
   </footer>
   <script src="lightbox.js"></script>
+  <script src="translations.js"></script>
+  <script src="i18n.js"></script>
 </body>
 </html>

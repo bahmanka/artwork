@@ -24,7 +24,7 @@
 <meta name="twitter:image" content="https://bahmanka.github.io/artwork/assets/my-paint1.jpg">
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap');
 
   :root{
     --paper:#f4ede1;
@@ -178,9 +178,42 @@
     pointer-events:none;
   }
 
+  .index-lang-toggle{
+    position:absolute;
+    top:24px;
+    right:28px;
+    z-index:3;
+    appearance:none;
+    border:1px solid rgba(244,237,225,0.4);
+    background:rgba(244,237,225,0.06);
+    color:rgba(244,237,225,0.85);
+    font-family:'Inter',sans-serif;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:0.06em;
+    padding:6px 13px;
+    border-radius:999px;
+    cursor:pointer;
+    transition:border-color 0.25s ease, background 0.25s ease;
+  }
+  .index-lang-toggle:hover{
+    border-color:rgba(244,237,225,0.7);
+    background:rgba(244,237,225,0.14);
+  }
+
+  body.lang-fa .brand,
+  body.lang-fa .byline,
+  body.lang-fa .role,
+  body.lang-fa .enter,
+  body.lang-fa .hint,
+  body.lang-fa .index-lang-toggle{
+    font-family:'Vazirmatn', Tahoma, sans-serif;
+  }
+
   @media (max-width:768px){
     .art-sharp, .art-blur{ background-position:62% 40%; }
     .hint{ display:none; }
+    .index-lang-toggle{ top:16px; right:16px; }
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -190,6 +223,8 @@
 </head>
 <body>
 
+  <button class="index-lang-toggle" id="langToggle" aria-label="Switch to Persian">FA</button>
+
   <div class="stage" id="stage">
     <div class="art-blur" id="artBlur"></div>
     <div class="art-sharp" id="artSharp"></div>
@@ -198,12 +233,12 @@
 
     <div class="content">
       <h1 class="brand" id="brand">B.K.A</h1>
-      <p class="byline" id="byline">Bahman Kiani Azad</p>
-      <p class="role" id="role">Painter</p>
-      <button class="enter" id="enterBtn" aria-label="Enter site">ENTER</button>
+      <p class="byline" id="byline" data-i18n="index.name">Bahman Kiani Azad</p>
+      <p class="role" id="role" data-i18n="index.role">Painter</p>
+      <button class="enter" id="enterBtn" data-i18n="index.enter" aria-label="Enter site">ENTER</button>
     </div>
 
-    <div class="hint">move your cursor across the canvas</div>
+    <div class="hint" data-i18n="index.hint">move your cursor across the canvas</div>
   </div>
 
   <script>
@@ -257,5 +292,7 @@
       setTimeout(() => { window.location.href = 'home.html'; }, 320);
     });
   </script>
+  <script src="translations.js"></script>
+  <script src="i18n.js"></script>
 </body>
 </html>
