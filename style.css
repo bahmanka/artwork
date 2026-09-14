@@ -157,7 +157,7 @@ a { color: inherit; }
 .hero-frame:hover img{ transform: scale(1.02); }
 .hero-meta{
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: 14px 2px 0;
   font-size: 12px;
   letter-spacing: 0.04em;
@@ -228,6 +228,29 @@ a { color: inherit; }
   transition: background 0.3s ease;
 }
 .year-card:hover{ background: var(--paper-2); }
+
+.year-card .cover{
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(3px) saturate(0.85) brightness(1.08);
+  opacity: 0.22;
+  transform: scale(1.08);
+  transition: opacity 0.4s ease, filter 0.4s ease;
+  pointer-events: none;
+}
+.year-card:hover .cover{
+  opacity: 0.32;
+  filter: blur(2px) saturate(0.95) brightness(1.05);
+}
+
+.year-card .year,
+.year-card .info{
+  position: relative;
+  z-index: 1;
+}
+
 .year-card .year{
   font-family: var(--display);
   font-weight: 700;
@@ -281,6 +304,9 @@ a { color: inherit; }
   line-height: 1.7;
   color: #2b2724;
   margin: 0;
+}
+.coll-intro p.statement{
+  white-space: pre-line;
 }
 .gallery{
   max-width: 1320px;
@@ -350,18 +376,36 @@ a { color: inherit; }
   border-radius: 2px;
   cursor: zoom-out;
 }
-.lightbox-caption{
+.lightbox-details{
   position: absolute;
-  bottom: 34px;
+  bottom: 40px;
   left: 0;
   right: 0;
   z-index: 1;
   text-align: center;
-  color: rgba(244,237,225,0.85);
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 14px;
+  font-family: var(--sans);
+  font-size: 13px;
+  letter-spacing: 0.01em;
   margin: 0;
+  padding: 0 60px;
+}
+.lightbox-details .ld-title{
+  color: rgba(244,237,225,0.95);
+  font-weight: 600;
+}
+.lightbox-details .ld-medium{
+  color: rgba(244,237,225,0.55);
+}
+.lightbox-details .ld-year{
+  color: var(--brick);
+  font-weight: 600;
+}
+.lightbox-details .ld-sep{
+  color: rgba(244,237,225,0.4);
+  margin: 0 2px;
+}
+.lightbox-details .ld-sep:last-of-type{
+  margin-left: 2px;
 }
 .lightbox-close{
   position: absolute;
@@ -405,7 +449,7 @@ a { color: inherit; }
   .lightbox-prev{ left: 10px; }
   .lightbox-next{ right: 10px; }
   .lightbox-close{ top: 14px; right: 16px; font-size: 28px; }
-  .lightbox-caption{ bottom: 20px; font-size: 12px; padding: 0 50px; }
+  .lightbox-details{ bottom: 20px; font-size: 11.5px; padding: 0 50px; }
 }
 
 /* ---------- BIOGRAPHY ---------- */
@@ -572,26 +616,10 @@ a { color: inherit; }
 /* ---------- RTL / Persian overrides ---------- */
 
 body.lang-fa {
+  --sans: var(--sans-fa);
+  --serif: var(--serif-fa);
+  --display: var(--display-fa);
   font-family: var(--sans-fa);
-}
-
-body.lang-fa .mark,
-body.lang-fa .page-head h2,
-body.lang-fa .coll-intro .title,
-body.lang-fa .year-card .year,
-body.lang-fa .contact-big,
-body.lang-fa .section-title,
-body.lang-fa .bio-side .name {
-  font-family: var(--display-fa);
-}
-
-body.lang-fa .byline,
-body.lang-fa .coll-intro p,
-body.lang-fa .year-card .title,
-body.lang-fa .intro blockquote em,
-body.lang-fa .exhibit-list .where {
-  font-family: var(--serif-fa);
-  font-style: normal;
 }
 
 body.lang-fa .site-nav {
@@ -626,6 +654,10 @@ body.lang-fa .exhibit-list .when,
 body.lang-fa .year-card .year {
   direction: ltr;
   unicode-bidi: isolate;
+}
+
+body.lang-fa .lightbox-details {
+  direction: rtl;
 }
 
 @media (max-width: 900px){

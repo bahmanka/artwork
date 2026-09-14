@@ -11,13 +11,18 @@
     <button class="lightbox-nav lightbox-prev" aria-label="Previous">&#8249;</button>
     <img class="lightbox-img" src="" alt="">
     <button class="lightbox-nav lightbox-next" aria-label="Next">&#8250;</button>
-    <p class="lightbox-caption"></p>
+    <p class="lightbox-details">
+      <span class="ld-title"></span><span class="ld-sep">,</span><span class="ld-medium"></span><span class="ld-sep">,</span><span class="ld-year"></span>
+    </p>
   `;
   document.body.appendChild(overlay);
 
   const backdrop = overlay.querySelector('.lightbox-backdrop');
   const imgEl = overlay.querySelector('.lightbox-img');
-  const captionEl = overlay.querySelector('.lightbox-caption');
+  const titleEl = overlay.querySelector('.ld-title');
+  const mediumEl = overlay.querySelector('.ld-medium');
+  const yearEl = overlay.querySelector('.ld-year');
+  const detailsEl = overlay.querySelector('.lightbox-details');
   const closeBtn = overlay.querySelector('.lightbox-close');
   const prevBtn = overlay.querySelector('.lightbox-prev');
   const nextBtn = overlay.querySelector('.lightbox-next');
@@ -25,14 +30,32 @@
   const images = Array.from(galleryImages);
   let currentIndex = 0;
 
+  function translate(key) {
+    if (!key) return '';
+    const lang = (typeof getCurrentLang === 'function') ? getCurrentLang() : 'en';
+    return (typeof t === 'function') ? t(key, lang) : key;
+  }
+
   function show(index) {
     currentIndex = (index + images.length) % images.length;
     const img = images[currentIndex];
     imgEl.src = img.src;
     imgEl.alt = img.alt || '';
     backdrop.style.backgroundImage = `url("${img.src}")`;
-    const figcaption = img.closest('figure') ? img.closest('figure').querySelector('figcaption') : null;
-    captionEl.textContent = figcaption ? figcaption.textContent : '';
+
+    // Three-part detail line: title (series name), medium+size, year —
+    // each sourced from its own data-*-i18n attribute for independent styling.
+    const titleText = translate(img.getAttribute('data-title-i18n'));
+    const mediumText = translate(img.getAttribute('data-medium-i18n'));
+    const yearText = translate(img.getAttribute('data-year-i18n'));
+
+    titleEl.textContent = titleText;
+    mediumEl.textContent = mediumText;
+    yearEl.textContent = yearText;
+
+    const hasAny = titleText || mediumText || yearText;
+    detailsEl.style.display = hasAny ? '' : 'none';
+
     overlay.classList.add('is-open');
     document.body.style.overflow = 'hidden';
   }
