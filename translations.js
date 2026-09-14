@@ -13,7 +13,7 @@ const translations = {
 
   "brand.byline": { en: "Bahman Kiani Azad — Painter", fa: "بهمن کیانی آزاد — نقاش" },
 
-  "footer.copyright": { en: "© 2026 Bahman Kiani Azad", fa: "© ۱۴۰۴ بهمن کیانی آزاد" },
+  "footer.copyright": { en: "© 2026 Bahman Kiani Azad", fa: "© ۱۴۰۵ بهمن کیانی آزاد" },
   "footer.location":  { en: "Tehran — Ardabil", fa: "تهران — اردبیل" },
 
   // ---------- index.html (interactive hero) ----------

@@ -3,7 +3,10 @@
    (our palette + typography, their structural layout)
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap');
+/* Fonts are loaded via <link rel="stylesheet"> in each page's <head>
+   (see the font preconnect + stylesheet links), not via @import,
+   since @import blocks the critical rendering path. */
+
 
 :root {
   --ink: #171310;
@@ -24,6 +27,18 @@
 }
 
 * { box-sizing: border-box; }
+
+.visually-hidden{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 
 html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
 
@@ -68,6 +83,11 @@ a { color: inherit; }
   letter-spacing: -0.02em;
   margin: 0;
   line-height: 1;
+}
+
+.mark a{
+  color: inherit;
+  text-decoration: none;
 }
 
 .byline {
@@ -170,7 +190,7 @@ a { color: inherit; }
   max-width: 720px;
   margin: 70px auto 110px;
   padding: 0 40px;
-  text-align: left;
+  text-align: start;
 }
 .intro blockquote{
   margin: 0;
@@ -281,7 +301,7 @@ a { color: inherit; }
   max-width: 720px;
   margin: 0 auto;
   padding: 70px 40px 50px;
-  text-align: left;
+  text-align: start;
 }
 .coll-intro .title{
   font-family: var(--display);
@@ -320,13 +340,28 @@ a { color: inherit; }
   break-inside: avoid;
   background: var(--paper-2);
 }
+.gallery-trigger{
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: zoom-in;
+  font: inherit;
+  color: inherit;
+}
+.gallery-trigger:focus-visible{
+  outline: 3px solid var(--brick);
+  outline-offset: 3px;
+}
 .gallery img{
   width: 100%;
   height: auto;
   display: block;
   transition: opacity 0.3s ease;
 }
-.gallery img:hover{ opacity: 0.92; }
+.gallery-trigger:hover img,
+.gallery-trigger:focus-visible img{ opacity: 0.92; }
 .gallery figcaption{
   padding: 12px 0 0;
   font-size: 12px;
@@ -350,6 +385,9 @@ a { color: inherit; }
 .lightbox-overlay.is-open{
   opacity: 1;
   visibility: visible;
+}
+.lightbox-overlay.no-motion{
+  transition: none;
 }
 .lightbox-backdrop{
   position: absolute;

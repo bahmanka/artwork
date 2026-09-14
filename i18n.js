@@ -6,6 +6,16 @@
 // `setCurrentLang`).
 // ============================================================
 
+// Only these keys legitimately contain markup (a <br> line break or
+// an <em> emphasis span) — every other key is rendered as plain text
+// via textContent, so nothing else can ever inject markup even if
+// the dictionary source changes later.
+const HTML_ALLOWED_KEYS = new Set([
+  "home.quote",
+  "bio.name",
+  "bio.edu",
+]);
+
 function applyLanguage(lang) {
   document.documentElement.lang = lang === "fa" ? "fa" : "en";
   document.documentElement.dir = lang === "fa" ? "rtl" : "ltr";
@@ -15,13 +25,17 @@ function applyLanguage(lang) {
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
     const value = t(key, lang);
-    el.innerHTML = value;
+    if (HTML_ALLOWED_KEYS.has(key)) {
+      el.innerHTML = value;
+    } else {
+      el.textContent = value;
+    }
   });
 
   document.querySelectorAll("[data-i18n-year]").forEach((el) => {
     const year = el.getAttribute("data-i18n-year");
     const template = t("gallery.soon", lang);
-    el.innerHTML = template.replace("{year}", year);
+    el.textContent = template.replace("{year}", year);
   });
 
   document.querySelectorAll("[data-i18n-attr]").forEach((el) => {

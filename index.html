@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>B.K.A — Bahman Kiani Azad</title>
 <meta name="description" content="Bahman Kiani Azad — painter. Portfolio and exhibitions.">
+  <link rel="canonical" href="https://bahmanka.github.io/artwork/">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="fa_IR">
 
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
@@ -23,9 +26,11 @@
 <meta name="twitter:description" content="Painter based in Ardabil, Iran — figurative works, exhibitions and collections.">
 <meta name="twitter:image" content="https://bahmanka.github.io/artwork/assets/my-paint1.jpg">
 
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap');
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap">
 
+<style>
   :root{
     --paper:#f4ede1;
     --ink:#171310;
@@ -235,7 +240,7 @@
       <h1 class="brand" id="brand">B.K.A</h1>
       <p class="byline" id="byline" data-i18n="index.name">Bahman Kiani Azad</p>
       <p class="role" id="role" data-i18n="index.role">Painter</p>
-      <button class="enter" id="enterBtn" data-i18n="index.enter" aria-label="Enter site">ENTER</button>
+      <a class="enter" id="enterBtn" href="home.html" data-i18n="index.enter" aria-label="Enter site">ENTER</a>
     </div>
 
     <div class="hint" data-i18n="index.hint">move your cursor across the canvas</div>
@@ -250,46 +255,61 @@
     const role = document.getElementById('role');
     const btn = document.getElementById('enterBtn');
 
-    let targetX = 50, targetY = 38;
-    let curX = 50, curY = 38;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    function onMove(clientX, clientY){
-      const rect = stage.getBoundingClientRect();
-      const px = ((clientX - rect.left) / rect.width) * 100;
-      const py = ((clientY - rect.top) / rect.height) * 100;
-      targetX = px;
-      targetY = py;
+    if (prefersReducedMotion) {
+      // Skip the animated parallax/bokeh loop entirely: show a single
+      // static, sharp frame with no per-frame work and no motion
+      // listeners, honoring the user's OS-level reduced-motion setting.
+      artSharp.style.setProperty('--mx', '50%');
+      artSharp.style.setProperty('--my', '38%');
+      artSharp.style.filter = 'none';
+      artSharp.style.setProperty('-webkit-mask-image', 'none');
+      artSharp.style.maskImage = 'none';
+      artBlur.style.display = 'none';
+    } else {
+      let targetX = 50, targetY = 38;
+      let curX = 50, curY = 38;
 
-      const nx = (px - 50) / 50;   // -1 .. 1
-      const ny = (py - 50) / 50;
+      function onMove(clientX, clientY){
+        const rect = stage.getBoundingClientRect();
+        const px = ((clientX - rect.left) / rect.width) * 100;
+        const py = ((clientY - rect.top) / rect.height) * 100;
+        targetX = px;
+        targetY = py;
 
-      brand.style.transform = `translate(${nx * 14}px, ${ny * 10}px)`;
-      byline.style.transform = `translate(${nx * 9}px, ${ny * 7}px)`;
-      role.style.transform = `translate(${nx * 7}px, ${ny * 5}px)`;
-      btn.style.transform = `translate(${nx * 10}px, ${ny * 8}px)`;
+        const nx = (px - 50) / 50;   // -1 .. 1
+        const ny = (py - 50) / 50;
 
-      artBlur.style.transform = `scale(1.06) translate(${-nx * 12}px, ${-ny * 12}px)`;
-      artSharp.style.transform = `translate(${-nx * 18}px, ${-ny * 18}px)`;
+        brand.style.transform = `translate(${nx * 14}px, ${ny * 10}px)`;
+        byline.style.transform = `translate(${nx * 9}px, ${ny * 7}px)`;
+        role.style.transform = `translate(${nx * 7}px, ${ny * 5}px)`;
+        btn.style.transform = `translate(${nx * 10}px, ${ny * 8}px)`;
+
+        artBlur.style.transform = `scale(1.06) translate(${-nx * 12}px, ${-ny * 12}px)`;
+        artSharp.style.transform = `translate(${-nx * 18}px, ${-ny * 18}px)`;
+      }
+
+      window.addEventListener('mousemove', e => onMove(e.clientX, e.clientY));
+      window.addEventListener('touchmove', e => {
+        if (e.touches[0]) onMove(e.touches[0].clientX, e.touches[0].clientY);
+      }, { passive:true });
+
+      function raf(){
+        curX += (targetX - curX) * 0.08;
+        curY += (targetY - curY) * 0.08;
+        artSharp.style.setProperty('--mx', curX + '%');
+        artSharp.style.setProperty('--my', curY + '%');
+        requestAnimationFrame(raf);
+      }
+      raf();
     }
 
-    window.addEventListener('mousemove', e => onMove(e.clientX, e.clientY));
-    window.addEventListener('touchmove', e => {
-      if (e.touches[0]) onMove(e.touches[0].clientX, e.touches[0].clientY);
-    }, { passive:true });
-
-    function raf(){
-      curX += (targetX - curX) * 0.08;
-      curY += (targetY - curY) * 0.08;
-      artSharp.style.setProperty('--mx', curX + '%');
-      artSharp.style.setProperty('--my', curY + '%');
-      requestAnimationFrame(raf);
-    }
-    raf();
-
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
       if (navigator.vibrate) navigator.vibrate(60);
       btn.classList.add('clicked');
-      setTimeout(() => { window.location.href = 'home.html'; }, 320);
+      setTimeout(() => { window.location.href = btn.href; }, 320);
     });
   </script>
   <script src="translations.js"></script>

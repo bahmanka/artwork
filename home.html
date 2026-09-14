@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>B.K.A | Home</title>
   <meta name="description" content="Bahman Kiani Azad — painter based in Ardabil and Tehran, Iran. Figurative paintings, exhibitions and collections.">
+  <link rel="canonical" href="https://bahmanka.github.io/artwork/home.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="fa_IR">
 
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
@@ -22,12 +25,15 @@
   <meta name="twitter:title" content="B.K.A | Home">
   <meta name="twitter:description" content="Bahman Kiani Azad — painter based in Ardabil and Tehran, Iran. Figurative paintings, exhibitions and collections.">
   <meta name="twitter:image" content="https://bahmanka.github.io/artwork/assets/studio.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="site-header">
     <div class="brand-lockup">
-      <h1 class="mark">B.K.A</h1>
+      <h1 class="mark"><a href="home.html" aria-label="B.K.A — Home">B.K.A</a></h1>
       <p class="byline" data-i18n="brand.byline">Bahman Kiani Azad — Painter</p>
     </div>
     <nav class="site-nav">
@@ -39,20 +45,24 @@
     <button id="langToggle" class="lang-toggle" aria-label="Switch to Persian">FA</button>
   </header>
 
-  <div class="hero">
+  
+  <main>
+    <div class="hero">
+    <h2 class="visually-hidden" data-i18n="nav.home">Home</h2>
     <div class="hero-frame">
-      <img src="assets/studio.jpg" alt="Bahman Kiani Azad's painting studio" />
+    <img src="assets/studio.jpg" width="1280" height="721" alt="Bahman Kiani Azad's painting studio" fetchpriority="high" />
     </div>
     <div class="hero-meta">
-      <span data-i18n="home.hero.meta">The studio, Ardabil</span>
+    <span data-i18n="home.hero.meta">The studio, Ardabil</span>
     </div>
-  </div>
-
-  <div class="intro">
+    </div>
+    <div class="intro">
     <blockquote data-i18n="home.quote">
-      When someone tries to forget something, it means forgetting isn't easy for them; it means <em>they care about what they're trying to forget.</em>
+    When someone tries to forget something, it means forgetting isn't easy for them; it means <em>they care about what they're trying to forget.</em>
     </blockquote>
-  </div>
+    </div>
+  </main>
+
 
   <footer class="site-footer">
     <span data-i18n="footer.copyright">© 2026 Bahman Kiani Azad</span>
