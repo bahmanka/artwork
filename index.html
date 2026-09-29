@@ -146,6 +146,12 @@
   .enter{
     -webkit-appearance:none;
     appearance:none;
+    /* ENTER is a real link (<a>), so it does not get the label centering and
+       the no-underline look that a <button> would get for free. */
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
     border:1.5px solid rgba(244,237,225,0.55);
     background:transparent;
     color:var(--paper);
