@@ -60,7 +60,7 @@ const translations = {
   "bio.group.5.year": { en: "2017", fa: "۱۳۹۶" },
   "bio.group.6": { en: "Fajr Festival (two editions)", fa: "جشنواره فجر (دو دوره)" },
   "bio.group.6.year": { en: "2010–2011", fa: "۱۳۸۹–۱۳۹۰" },
-  "bio.group.7": { en: "Participation in Booklet Exhibition, Tarahane Azad Gallery, 2011", fa: "شرکت در نمایشگاه کتابچه، گالری طراحان آزاد، ۱۳۹۰" },
+  "bio.group.7": { en: "Booklet Exhibition, Tarahane Azad Gallery", fa: "نمایشگاه کتابچه، گالری طراحان آزاد" },
   "bio.group.7.year": { en: "2011", fa: "۱۳۹۰" },
   "bio.group.8": { en: "Damonfar Festival (two editions)", fa: "جشنواره دامون‌فر (دو دوره)" },
   "bio.group.8.year": { en: "2007–2010", fa: "۱۳۸۶–۱۳۸۹" },
